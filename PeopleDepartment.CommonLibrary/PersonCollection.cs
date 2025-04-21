@@ -8,47 +8,157 @@ using System.Threading.Tasks;
 
 namespace PeopleDepartment.CommonLibrary
 {
-    internal class PersonCollection : ICollection<Person>, INotifyCollectionChanged
+    public class PersonCollection : ICollection<Person>, INotifyCollectionChanged
     {
-        public int Count => throw new NotImplementedException();
-
+        private readonly List<Person> _people = [];
+        public int Count => _people.Count;
         public bool IsReadOnly => false;
 
         public event NotifyCollectionChangedEventHandler? CollectionChanged;
-
         public void Add(Person item)
         {
-            throw new NotImplementedException();
+            _people.Add(item);
+            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item));// vygenereovane
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, _people)); // vygenereovane
+            _people.Clear();       
         }
 
         public bool Contains(Person item)
         {
-            throw new NotImplementedException();
+            return _people.Contains(item);
         }
 
         public void CopyTo(Person[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            _people.CopyTo(array, arrayIndex);
         }
-
         public IEnumerator<Person> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return _people.GetEnumerator();
         }
 
         public bool Remove(Person item)
         {
-            throw new NotImplementedException();
+            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item)); // vygenereovane
+            return _people.Remove(item);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return (IEnumerator)_people; // neviem neviem ci je toto dobre
+        }
+        public void LoadFromCsv(FileInfo csvFile) 
+        {
+            using var sr = new StreamReader(csvFile.Name);
+            string? line;
+            line = sr.ReadLine();
+            while ((line = sr.ReadLine()) != null)
+            {
+                string[] values = line.Split(';');
+                Add(new Person(values[0], values[1], values[2], values[3], values[4], values[5]));
+            }
+            sr.Close();
+        }
+        public void SaveToCsv(FileInfo csvFile)
+        {
+            using var sw = new StreamWriter(csvFile.Name);
+            foreach (var person in this)
+            {
+                sw.WriteLine($"{person.FirstName};{person.LastName};{person.DisplayName};{person.Position};{person.Email};{person.Department}");
+            }
+            sw.Close();
+        }
+        public DepartmentReport[] GenerateDepartmentReports() 
+        {
+            DepartmentReport[] report = new DepartmentReport[SortedDepartmentNames().Length];
+            for (int i = 0; i < SortedDepartmentNames().Length; i++)
+            {
+                string dep = SortedDepartmentNames()[i];
+                report[i] = new DepartmentReport(
+                    dep,
+                    GetHeadOfDepartment(dep),
+                    GetDeputyOfDepartment(dep),
+                    GetSecretaryOfDepartment(dep),
+                    GetNumberOfProfessors(dep),
+                    GetNumberOfAssociateProfessors(dep),
+                    GetNumberOfEmployees(dep),
+                    GetNumberOfPhDStudents(dep),
+                    GetEmployees(dep),
+                    GetPhDStudents(dep)
+                );
+            }
+            return report;
+        }
+
+        private int GetNumberOfPhDStudents(string dep)
+        {
+            return _people
+                .Where(p => p.Department == dep && p.Position == "doktorand")
+                .Count();
+        }
+
+        private int GetNumberOfEmployees(string dep)
+        {
+            return _people
+                .Where(p => p.Department == dep && p.Position != "doktorand")
+                .Count();
+        }
+
+        private string[] SortedDepartmentNames() { 
+            return [.. _people
+                .Select(p => p.Department)
+                .Distinct()
+                .OrderBy(p => p)];
+        }
+        private Person? GetHeadOfDepartment(string dep) 
+        { 
+            return _people
+                .Where(p => p.Department == dep)
+                .FirstOrDefault(p => p.Position == "vedúci");
+        }
+        private Person? GetDeputyOfDepartment(string dep)
+        {
+            return _people
+                .Where(p => p.Department == dep)
+                .FirstOrDefault(p => p.Position == "zástupca vedúceho");
+        }
+        private Person? GetSecretaryOfDepartment(string dep)
+        {
+            return _people
+                .Where(p => p.Department == dep)
+                .FirstOrDefault(p => p.Position == "sekretárka");
+        }
+        private int GetNumberOfProfessors(string dep)
+        {
+            return _people
+                .Where(p => p.Department == dep && p.TitleBefore != null)
+                .Count(p => p.TitleBefore!.Split(' ')[0] == "prof.");
+        }
+        private int GetNumberOfAssociateProfessors(string dep)
+        {
+            return _people
+                .Where(p => p.Department == dep && p.TitleBefore != null)
+                .Count(p => p.TitleBefore!.Split(' ')[0] == "doc.");
+        }
+        private Person[] GetEmployees(string dep) 
+        { 
+            return _people
+                .Where(p => p.Department == dep && p.Position != "doktorand")
+                .OrderBy(p => p.FirstName)
+                .ThenBy(p => p.LastName)
+                .ToArray();
+        }
+        private Person[] GetPhDStudents(string dep)
+        {
+            return _people
+                .Where(p => p.Department == dep && p.Position == "doktorand")
+                .OrderBy(p => p.FirstName)
+                .ThenBy(p => p.LastName)
+                .ToArray();
         }
     }
 }

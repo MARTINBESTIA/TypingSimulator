@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PeopleDepartment.CommonLibrary
 {
-    internal class Person : INotifyPropertyChanged
+    public class Person : INotifyPropertyChanged
     {
         private string _firstName;
         private string _lastName;
@@ -119,7 +119,7 @@ namespace PeopleDepartment.CommonLibrary
                 if (slices[i] == FirstName)
                 {
 
-                    indexOfName = i + 1;
+                    indexOfName = i;
                     break;
                 }
             }
@@ -135,7 +135,7 @@ namespace PeopleDepartment.CommonLibrary
             {
                 if (slices[i] == LastName + ",")
                 {
-                    indexOfName = i;
+                    indexOfName = i + 1;
                     break;
                 }
             }

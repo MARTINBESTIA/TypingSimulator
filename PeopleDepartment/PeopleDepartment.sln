@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleDepartment", "PeopleDepartment.csproj", "{5062D50E-2028-4880-8872-10764CD63C1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeopleDepartment", "PeopleDepartment.csproj", "{5062D50E-2028-4880-8872-10764CD63C1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleDepartment.CommonLibrary", "..\PeopleDepartment.CommonLibrary\PeopleDepartment.CommonLibrary.csproj", "{639E1243-3E78-4C7F-A6C8-D407ACE9C225}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeopleDepartment.CommonLibrary", "..\PeopleDepartment.CommonLibrary\PeopleDepartment.CommonLibrary.csproj", "{639E1243-3E78-4C7F-A6C8-D407ACE9C225}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleDepartment.ReportConsoleApp", "..\PeopleDepartment.ReportConsoleApp\PeopleDepartment.ReportConsoleApp.csproj", "{79CFF183-478B-4737-A0E9-E24BA46E5922}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{639E1243-3E78-4C7F-A6C8-D407ACE9C225}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{639E1243-3E78-4C7F-A6C8-D407ACE9C225}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{639E1243-3E78-4C7F-A6C8-D407ACE9C225}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79CFF183-478B-4737-A0E9-E24BA46E5922}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79CFF183-478B-4737-A0E9-E24BA46E5922}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79CFF183-478B-4737-A0E9-E24BA46E5922}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79CFF183-478B-4737-A0E9-E24BA46E5922}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

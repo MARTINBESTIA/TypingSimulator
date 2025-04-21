@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PeopleDepartment.CommonLibrary
 {
-    internal class DepartmentReport(string department, Person? head, Person? deputy, Person? secretary, int numberOfProfessors, int numberOfAssociateProffesors, IEnumerable<Person> employees, IEnumerable<Person> phDStudents)
+    public class DepartmentReport(string department, Person? head, Person? deputy, Person? secretary, int numberOfProfessors, int numberOfAssociateProffesors, int numberOfEmployees, int numberOfPhDStudent, IEnumerable<Person> employees, IEnumerable<Person> phDStudents)
     {
         public string Department { get; } = department;
         public Person? Head { get; } = head;
@@ -14,11 +14,9 @@ namespace PeopleDepartment.CommonLibrary
         public Person? Secretary { get; } = secretary;
         public int NumberOfProfessors { get; } = numberOfProfessors;
         public int NumberOfAssociateProffesors { get; } = numberOfAssociateProffesors;
-        public int NumberOfEmployees { get; }
-        public int NumberOfPhDStudents { get; }
+        public int NumberOfEmployees { get; } = numberOfEmployees;
+        public int NumberOfPhDStudents { get; } = numberOfPhDStudent;
         public IEnumerable<Person> Employees { get; } = employees;
         public IEnumerable<Person> PhDStudents { get; } = phDStudents;
-
-
     }
 }
