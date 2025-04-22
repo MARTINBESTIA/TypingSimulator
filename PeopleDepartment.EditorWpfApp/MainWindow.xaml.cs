@@ -48,5 +48,25 @@ namespace PeopleDepartment.EditorWpfApp
         {
 
         }
+
+        private void FileOpen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FileSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FilePrint_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FileExit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
