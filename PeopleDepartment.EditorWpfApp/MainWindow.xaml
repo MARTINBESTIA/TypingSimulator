@@ -1,0 +1,68 @@
+﻿<Window x:Class="PeopleDepartment.EditorWpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PeopleDepartment.EditorWpfApp"
+        mc:Ignorable="d"
+        Title="People Department Editor" Height="242" Width="790">
+    <StackPanel>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="File">
+                    <MenuItem Header="New" Click="FileNew_Click" />
+                    <MenuItem Header="Open..." Click="FileOpen_Click" />
+                    <MenuItem Header="Save As..." Click="FileSave_Click" />
+                    <MenuItem Header="Exit" Click="FilePrint_Click" />
+                    <Separator />
+                    <MenuItem Header="_Exit" Click="FileExit_Click" />
+                </MenuItem>
+                <MenuItem Header="Edit">
+
+                </MenuItem>
+                <MenuItem Header="View">
+
+                </MenuItem>
+                <MenuItem Header="Help">
+
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <DockPanel>
+            <Button Content="New..." Width="50" Height="25" Margin="4" Click="New_Click"/>
+            <Button Content="Open..." Width="60" Height="25" Margin="4" Click="Open_Click"/>
+            <Button Content="Save As..." Width="70" Height="25" Margin="4" Click="Save_Click"/>
+            <Button Content="View by department" Width="120" Height="25" Margin="4" Click="View_Click" HorizontalAlignment="Right" />
+        </DockPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"  />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ListView Grid.Column="0" Name="itemsControl" Margin="5,0,62,0" ItemsSource="{StaticResource MyData}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Display Name" Width="150" DisplayMemberBinding="{Binding Path=Description}"/>
+                        <GridViewColumn Header="Title Before" Width="80" DisplayMemberBinding="{Binding Path=Price, StringFormat=c}"/>
+                        <GridViewColumn Header="First Name" Width="80" DisplayMemberBinding="{Binding Path=Description}"/>
+                        <GridViewColumn Header="Last Name" Width="80" DisplayMemberBinding="{Binding Path=Price, StringFormat=c}"/>
+                        <GridViewColumn Header="Title After" Width="80" DisplayMemberBinding="{Binding Path=Description}"/>
+                        <GridViewColumn Header="Email" Width="150" DisplayMemberBinding="{Binding Path=Price, StringFormat=c}"/>
+                        <GridViewColumn Header="Position" Width="90" DisplayMemberBinding="{Binding Path=Price, StringFormat=c}"/>
+                        <GridViewColumn Header="Department" Width="150" DisplayMemberBinding="{Binding Path=Price, StringFormat=c}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+                <Button Content="Add..." Width="50" Height="25" Margin="4" Click="New_Click"/>
+                <Button Content="Edit..." Width="50" Height="25" Margin="4" Click="Open_Click"/>
+                <Button Content="Remove" Width="50" Height="25" Margin="4" Click="Save_Click"/>
+            </StackPanel>
+        </Grid>
+
+    </StackPanel>
+</Window>

@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeopleDepartment", "PeopleD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeopleDepartment.CommonLibrary", "..\PeopleDepartment.CommonLibrary\PeopleDepartment.CommonLibrary.csproj", "{639E1243-3E78-4C7F-A6C8-D407ACE9C225}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleDepartment.ReportConsoleApp", "..\PeopleDepartment.ReportConsoleApp\PeopleDepartment.ReportConsoleApp.csproj", "{79CFF183-478B-4737-A0E9-E24BA46E5922}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeopleDepartment.ReportConsoleApp", "..\PeopleDepartment.ReportConsoleApp\PeopleDepartment.ReportConsoleApp.csproj", "{79CFF183-478B-4737-A0E9-E24BA46E5922}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleDepartment.EditorWpfApp", "..\PeopleDepartment.EditorWpfApp\PeopleDepartment.EditorWpfApp.csproj", "{88AF1B5F-3479-414A-9D75-52551031CD20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{79CFF183-478B-4737-A0E9-E24BA46E5922}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79CFF183-478B-4737-A0E9-E24BA46E5922}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79CFF183-478B-4737-A0E9-E24BA46E5922}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88AF1B5F-3479-414A-9D75-52551031CD20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88AF1B5F-3479-414A-9D75-52551031CD20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88AF1B5F-3479-414A-9D75-52551031CD20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88AF1B5F-3479-414A-9D75-52551031CD20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

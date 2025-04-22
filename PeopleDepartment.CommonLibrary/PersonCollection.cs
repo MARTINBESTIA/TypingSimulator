@@ -146,19 +146,17 @@ namespace PeopleDepartment.CommonLibrary
         }
         private Person[] GetEmployees(string dep) 
         { 
-            return _people
+            return [.. _people
                 .Where(p => p.Department == dep && p.Position != "doktorand")
                 .OrderBy(p => p.FirstName)
-                .ThenBy(p => p.LastName)
-                .ToArray();
+                .ThenBy(p => p.LastName)];
         }
         private Person[] GetPhDStudents(string dep)
         {
-            return _people
+            return [.. _people
                 .Where(p => p.Department == dep && p.Position == "doktorand")
                 .OrderBy(p => p.FirstName)
-                .ThenBy(p => p.LastName)
-                .ToArray();
+                .ThenBy(p => p.LastName)];
         }
     }
 }

@@ -31,8 +31,8 @@ namespace PeopleDepartment.ReportConsoleApp
 
         private static void WriteOut(string pInputFile, string pTemplate, string pOutputFolder)
         {
-            PersonCollection collection = new PersonCollection();
-            string[] templateLines = Array.Empty<string>();
+            PersonCollection collection = [];
+            string[] templateLines = [];
             try
             {
                 collection.LoadFromCsv(new FileInfo(pInputFile));
@@ -40,12 +40,12 @@ namespace PeopleDepartment.ReportConsoleApp
             }
             catch (FileNotFoundException)
             {
-                Console.WriteLine($"File not found");
+                Console.Error.WriteLine($"Csv file or template file not found");
                 return;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine($"Some Error occured: {ex.Message}");
+                Console.WriteLine($"Some Error occured");
                 return;
             }
             string reportFolderPath = "";
@@ -61,39 +61,37 @@ namespace PeopleDepartment.ReportConsoleApp
 
             foreach (var coll in collection.GenerateDepartmentReports())
             {
-                using (var sw = new StreamWriter(Path.Combine(reportFolderPath, coll.Department + ".txt")))
+                using var sw = new StreamWriter(Path.Combine(reportFolderPath, coll.Department + ".txt"));
+                foreach (var line in templateLines)
                 {
-                    foreach (var line in templateLines)
-                    {
-                        string[] splittedLine = line.Split(' ');
+                    string[] splittedLine = line.Split(' ');
 
-                        foreach (var word in splittedLine)
-                        {
-                            string word1 = processWord(word, coll);
-                            if (pOutputFolder == null)
-                            {
-                                Console.Write(word1 + " ");
-                            }
-                            else
-                            {
-                                sw.Write(word1 + " ");
-                            }
-                        }
+                    foreach (var word in splittedLine)
+                    {
+                        string word1 = ProcessWord(word, coll);
                         if (pOutputFolder == null)
                         {
-                            Console.WriteLine();
+                            Console.Write(word1 + " ");
                         }
                         else
                         {
-                            sw.WriteLine();
+                            sw.Write(word1 + " ");
                         }
                     }
-                    sw.Close();
+                    if (pOutputFolder == null)
+                    {
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        sw.WriteLine();
+                    }
                 }
+                sw.Close();
             }
         }
 
-        private static string processWord(string word, DepartmentReport report)
+        private static string ProcessWord(string word, DepartmentReport report)
         {
             switch (word)
             {

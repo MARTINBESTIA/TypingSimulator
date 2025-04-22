@@ -9,7 +9,7 @@ namespace PeopleDepartment
     {
         public static void Main(string[] args)
         {
-            PersonCollection collection = new PersonCollection();
+            PersonCollection collection = new();
             FileInfo file = new("people-fri.csv");
             collection.LoadFromCsv(file);
             foreach (var coll in collection.GenerateDepartmentReports())
