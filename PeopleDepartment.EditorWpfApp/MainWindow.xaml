@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PeopleDepartment.EditorWpfApp"
+        xmlns:local="clr-namespace:PeopleDepartment.CommonLibrary;assembly=PeopleDepartment.CommonLibrary"   
         mc:Ignorable="d"
-        Title="People Department Editor" Height="211" Width="465">
-    <Grid>
+        Title="People Department Editor" Height="200" Width="400">
+         <!-- 3. Riadok odspodu nad my doplnilo AI -->
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -50,24 +51,24 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <!-- Kód skopírovaný z WPFSamples/Samples/Data Binding/EditingCollections-->
-            <ListView Grid.Column="0" Name="itemsControl" Margin="4,0,60,0" >
+            <ListView x:Name="itemsControl" Grid.Column="0" Margin="4,0,60,0" ItemsSource="{Binding PersonList}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Display Name" Width="150" DisplayMemberBinding="{Binding Path=Description}"/>
-                        <GridViewColumn Header="Title Before" Width="80" DisplayMemberBinding="{Binding Path=Price, StringFormat=c}"/>
-                        <GridViewColumn Header="First Name" Width="80" DisplayMemberBinding="{Binding Path=Description}"/>
-                        <GridViewColumn Header="Last Name" Width="80" DisplayMemberBinding="{Binding Path=Price, StringFormat=c}"/>
-                        <GridViewColumn Header="Title After" Width="80" DisplayMemberBinding="{Binding Path=Description}"/>
-                        <GridViewColumn Header="Email" Width="150" DisplayMemberBinding="{Binding Path=Price, StringFormat=c}"/>
-                        <GridViewColumn Header="Position" Width="90" DisplayMemberBinding="{Binding Path=Price, StringFormat=c}"/>
-                        <GridViewColumn Header="Department" Width="150" DisplayMemberBinding="{Binding Path=Price, StringFormat=c}"/>
+                        <GridViewColumn Header="Display Name" Width="150" DisplayMemberBinding="{Binding Path=DisplayName}"/>
+                        <GridViewColumn Header="Title Before" Width="80" DisplayMemberBinding="{Binding Path=TitleBefore}"/>
+                        <GridViewColumn Header="First Name" Width="80" DisplayMemberBinding="{Binding Path=FirstName}"/>
+                        <GridViewColumn Header="Last Name" Width="80" DisplayMemberBinding="{Binding Path=LastName}"/>
+                        <GridViewColumn Header="Title After" Width="80" DisplayMemberBinding="{Binding Path=TitleAfter}"/>
+                        <GridViewColumn Header="Email" Width="150" DisplayMemberBinding="{Binding Path=Email}"/>
+                        <GridViewColumn Header="Position" Width="90" DisplayMemberBinding="{Binding Path=Position}"/>
+                        <GridViewColumn Header="Department" Width="150" DisplayMemberBinding="{Binding Path=Department}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
-                <Button Content="Add..." Width="50" Height="25" Margin="4" Click="New_Click"/>
-                <Button Content="Edit..." Width="50" Height="25" Margin="4" Click="Open_Click"/>
-                <Button Content="Remove" Width="50" Height="25" Margin="4" Click="Save_Click"/>
+                <Button Content="Add..." Width="50" Height="25" Margin="4" Click="Add_Click"/>
+                <Button Content="Edit..." Width="50" Height="25" Margin="4" Click="Edit_Click"/>
+                <Button Content="Remove" Width="50" Height="25" Margin="4" Click="Remove_Click"/>
                 <TextBlock Text="Count: 0" Margin="4"/>
             </StackPanel>
         </Grid>

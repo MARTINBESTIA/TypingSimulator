@@ -59,8 +59,9 @@ namespace PeopleDepartment.CommonLibrary
             }
 
         }
-        public readonly string? TitleBefore;
-        public readonly string? TitleAfter;
+        public string? TitleBefore { get; } // tieto dva by mali byt readonly podla zadania ale potom mi DataBinding v MainWindow nedokaze precitat
+                                            // TitleBefore a TitleAfter
+        public string? TitleAfter { get; }
         public string Position
         {
             get
@@ -123,6 +124,7 @@ namespace PeopleDepartment.CommonLibrary
                     break;
                 }
             }
+            string s = String.Join(' ', slices[0..indexOfName]);
             return String.Join(' ', slices[0..indexOfName]); // https://learn.microsoft.com/en-us/dotnet/api/system.string.join?view=net-9.0
 
         }

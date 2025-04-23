@@ -43,17 +43,22 @@ namespace PeopleDepartment.CommonLibrary
 
         public bool Remove(Person item)
         {
-            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item)); // vygenereovane
+            int index = _people.IndexOf(item);
+            bool removed = _people.Remove(item);
+            if (removed)
+            {
+                CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item, index)); // vygenereovane
+            }
             return _people.Remove(item);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return (IEnumerator)_people; // neviem neviem ci je toto dobre
+            return _people.GetEnumerator(); 
         }
         public void LoadFromCsv(FileInfo csvFile) 
         {
-            using var sr = new StreamReader(csvFile.Name);
+            using var sr = new StreamReader(csvFile.FullName);
             string? line;
             line = sr.ReadLine();
             while ((line = sr.ReadLine()) != null)
@@ -65,7 +70,7 @@ namespace PeopleDepartment.CommonLibrary
         }
         public void SaveToCsv(FileInfo csvFile)
         {
-            using var sw = new StreamWriter(csvFile.Name);
+            using var sw = new StreamWriter(csvFile.FullName);
             foreach (var person in this)
             {
                 sw.WriteLine($"{person.FirstName};{person.LastName};{person.DisplayName};{person.Position};{person.Email};{person.Department}");
