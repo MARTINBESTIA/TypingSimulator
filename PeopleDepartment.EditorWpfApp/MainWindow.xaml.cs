@@ -28,6 +28,7 @@ namespace PeopleDepartment.EditorWpfApp
 
             DataContext = this;
             PersonList.CollectionChanged += SetWindowChanged;
+            PersonList.CollectionChanged += UpdateCount;
         }
         
 
@@ -84,6 +85,10 @@ namespace PeopleDepartment.EditorWpfApp
         private void SetWindowChanged(object? sender, NotifyCollectionChangedEventArgs e)
         {
             windowChanged = true;
+        }
+        private void UpdateCount(object? sender, NotifyCollectionChangedEventArgs e)
+        {
+            CountText.Text = PersonList.Count().ToString();
         }
         private bool SaveFile()
         {                   // https://learn.microsoft.com/en-us/dotnet/api/microsoft.win32.savefiledialog?view=windowsdesktop-9.0
@@ -164,11 +169,17 @@ namespace PeopleDepartment.EditorWpfApp
             {
                 var dialog = new AddPersonDialog(PersonList, selected).ShowDialog();
             }
+            itemsControl.Items.Refresh();
         }
 
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
             Person selected = (Person)itemsControl.SelectedItem;
+            if (selected == null)
+            {
+                MessageBox.Show("No person selected");
+                return;
+            }
             MessageBoxResult result = MessageBox.Show(
                 $"Do you want to delete the selected person ({selected.DisplayName})",
                 "Remove person",
@@ -182,5 +193,26 @@ namespace PeopleDepartment.EditorWpfApp
                 itemsControl.Items.Refresh();
             }
         }
+
+        private void itemsControl_Selected(object sender, RoutedEventArgs e)
+        {
+            Person selected = (Person)itemsControl.SelectedItem;
+            if (selected == null)
+            {
+                editButton.Opacity = 0.5;
+                removeButton.Opacity = 0.5;
+                editButton.IsEnabled = false;
+                removeButton.IsEnabled = false;
+            }
+            else
+            {
+                editButton.Opacity = 1;
+                removeButton.Opacity = 1;
+                editButton.IsEnabled = true;
+                removeButton.IsEnabled = true;
+            }
+        }
+
+        
     }
 }

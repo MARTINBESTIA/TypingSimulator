@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PeopleDepartment.CommonLibrary;assembly=PeopleDepartment.CommonLibrary"   
         mc:Ignorable="d"
-        Title="People Department Editor" Height="200" Width="400">
-         <!-- 3. Riadok odspodu nad my doplnilo AI -->
-        <Grid>
+        Title="People Department Editor" Height="300" Width="700">
+    <!-- 3. Riadok odspodu nad my doplnilo AI -->
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -51,7 +51,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <!-- Kód skopírovaný z WPFSamples/Samples/Data Binding/EditingCollections-->
-            <ListView x:Name="itemsControl" Grid.Column="0" Margin="4,0,60,0" ItemsSource="{Binding PersonList}">
+            <ListView x:Name="itemsControl" Grid.Column="0" Margin="4,0,60,0" SelectionChanged="itemsControl_Selected"  ItemsSource="{Binding PersonList}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Display Name" Width="150" DisplayMemberBinding="{Binding Path=DisplayName}"/>
@@ -67,9 +67,10 @@
             </ListView>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
                 <Button Content="Add..." Width="50" Height="25" Margin="4" Click="Add_Click"/>
-                <Button Content="Edit..." Width="50" Height="25" Margin="4" Click="Edit_Click"/>
-                <Button Content="Remove" Width="50" Height="25" Margin="4" Click="Remove_Click"/>
-                <TextBlock Text="Count: 0" Margin="4"/>
+                <Button x:Name="editButton" Content="Edit..." Width="50" Height="25" Margin="4" Opacity="0.5" Click="Edit_Click"/>
+                <Button x:Name="removeButton" Content="Remove" Width="50" Height="25" Margin="4" Opacity="0.5" Click="Remove_Click"/>
+                <TextBlock Text="Count: " Margin="4"/>
+                <TextBlock x:Name="CountText" FontSize="14" FontWeight="Bold"  Text="0" Width="51"/>
             </StackPanel>
         </Grid>
 

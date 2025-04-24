@@ -17,8 +17,9 @@ namespace PeopleDepartment.CommonLibrary
         public event NotifyCollectionChangedEventHandler? CollectionChanged;
         public void Add(Person item)
         {
+            int index = _people.IndexOf(item);
             _people.Add(item);
-            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item));// vygenereovane
+            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item, index));// vygenereovane
         }
 
         public void Clear()
