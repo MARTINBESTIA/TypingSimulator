@@ -1,0 +1,16 @@
+﻿<Window x:Class="PeopleDepartment.EditorWpfApp.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PeopleDepartment.EditorWpfApp"
+        mc:Ignorable="d"
+        Title="About" Height="250" Width="400" ResizeMode="NoResize">
+    <StackPanel>
+        <Label Content="People Department Editor" FontSize="25" FontWeight="Bold" Width="400" Height="40" HorizontalAlignment="Left"/>
+        <Label Content="Version 1.0" FontSize="15" Width="200" Height="32" HorizontalAlignment="Left"/>
+        <Label Content="Copyright 2025 Martin Šimko" FontSize="15" Width="400" Height="45" HorizontalAlignment="Left"/>
+        <Label Content="Táto úloha ale dala zabrať haha :D." FontSize="15" Width="299" Height="60" HorizontalAlignment="Left" />
+        <Button Width="100" Height="30" Content="OK" VerticalContentAlignment="Center" Margin="250,-10,0,0" Click="Button_Click"/>
+    </StackPanel>
+</Window>

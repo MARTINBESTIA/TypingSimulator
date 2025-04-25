@@ -20,6 +20,7 @@ namespace PeopleDepartment.EditorWpfApp
     public partial class MainWindow : Window
     {
         public bool windowChanged = false;
+        public bool fileSaved = false;
         public PersonCollection PersonList { get; set; } 
         public MainWindow()
         {
@@ -79,7 +80,19 @@ namespace PeopleDepartment.EditorWpfApp
 
         private void FileExit_Click(object sender, RoutedEventArgs e)
         {
-
+            bool saved = false;
+            if (windowChanged)
+            {
+                var result = MessageBox.Show("The collection has been modified. Do you want to save it?",
+                                            "Save colection", MessageBoxButton.YesNo);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        saved = SaveFile();
+                        break;
+                }
+            }
+            if (saved) this.Close();
         }
 
         private void SetWindowChanged(object? sender, NotifyCollectionChangedEventArgs e)
@@ -104,6 +117,7 @@ namespace PeopleDepartment.EditorWpfApp
             if (result.Value)
             {
                 PersonList.SaveToCsv(new FileInfo(dlg.FileName));
+                fileSaved = true;
                 string filename = dlg.FileName;
                 return true;
             }
@@ -121,9 +135,12 @@ namespace PeopleDepartment.EditorWpfApp
 
             if (openFileDialog.ShowDialog() == true)
             {
+                PersonList.Clear();
                 filePath = openFileDialog.FileName;
                 PersonList.LoadFromCsv(new FileInfo(filePath));
             }
+            windowChanged = false;
+            fileSaved = true;
         }
         private void NewFile() {
             if (windowChanged)
@@ -134,6 +151,7 @@ namespace PeopleDepartment.EditorWpfApp
                 switch (result)
                 {
                     case MessageBoxResult.Cancel:
+                        windowChanged = true;
                         break;
                     case MessageBoxResult.Yes:
                         saved = SaveFile();
@@ -144,13 +162,16 @@ namespace PeopleDepartment.EditorWpfApp
                         }
                         break;
                     case MessageBoxResult.No:
+                        windowChanged = true;
                         break;
                 }
                 if (result == MessageBoxResult.Yes && saved)
                     PersonList.Clear();
+
                     windowChanged = false;
             }
-            else
+            
+            if (fileSaved)
             {
                 PersonList.Clear();
                 windowChanged = false;
@@ -213,6 +234,14 @@ namespace PeopleDepartment.EditorWpfApp
             }
         }
 
-        
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ShowAboutWindow_Click(object sender, RoutedEventArgs e)
+        {
+           new AboutWindow().ShowDialog();
+        }
     }
 }

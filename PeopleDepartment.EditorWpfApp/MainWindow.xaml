@@ -31,13 +31,13 @@
 
                 </MenuItem>
                 <MenuItem Header="Help">
-
+                    <MenuItem Header="About..." Click="ShowAboutWindow_Click" />
                 </MenuItem>
             </Menu>
         </DockPanel>
 
         <DockPanel Grid.Row="1">
-            <Button Content="New..." Width="50" Height="25" Margin="4" Click="New_Click"/>
+            <Button Content="New..." Width="50" Margin="4" Click="New_Click"/>
             <Button Content="Open..." Width="60" Height="25" Margin="4" Click="Open_Click"/>
             <Button Content="Save As..." Width="70" Height="25" Margin="4" Click="Save_Click"/>
             <Button Content="View by department" Width="120" Height="25" Margin="4" Click="View_Click" HorizontalAlignment="Right" />
