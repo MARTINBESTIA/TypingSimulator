@@ -28,7 +28,7 @@
 
                 </MenuItem>
                 <MenuItem Header="View">
-
+                    <MenuItem Header="View by Department..." Click="View_Click" />
                 </MenuItem>
                 <MenuItem Header="Help">
                     <MenuItem Header="About..." Click="ShowAboutWindow_Click" />

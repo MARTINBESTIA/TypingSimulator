@@ -55,7 +55,7 @@ namespace PeopleDepartment.EditorWpfApp
 
         private void View_Click(object sender, RoutedEventArgs e)
         {
-
+            new DepartmentViewer(PersonList).ShowDialog();
         }
 
         private void FileNew_Click(object sender, RoutedEventArgs e)
@@ -84,12 +84,18 @@ namespace PeopleDepartment.EditorWpfApp
             if (windowChanged)
             {
                 var result = MessageBox.Show("The collection has been modified. Do you want to save it?",
-                                            "Save colection", MessageBoxButton.YesNo);
+                                            "Save colection", MessageBoxButton.YesNoCancel);
                 switch (result)
                 {
                     case MessageBoxResult.Yes:
                         saved = SaveFile();
                         break;
+                    case MessageBoxResult.No:
+                        this.Close();
+                        break;
+                    case MessageBoxResult.None:
+                        break;
+
                 }
             }
             if (saved) this.Close();

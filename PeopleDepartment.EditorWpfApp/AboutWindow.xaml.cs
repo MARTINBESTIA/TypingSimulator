@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PeopleDepartment.CommonLibrary;
 
 namespace PeopleDepartment.EditorWpfApp
 {
@@ -19,6 +20,8 @@ namespace PeopleDepartment.EditorWpfApp
     /// </summary>
     public partial class AboutWindow : Window
     {
+
+
         public AboutWindow()
         {
             InitializeComponent();

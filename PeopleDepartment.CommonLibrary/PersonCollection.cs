@@ -122,7 +122,7 @@ namespace PeopleDepartment.CommonLibrary
                 .Count();
         }
 
-        private string[] SortedDepartmentNames() { 
+        public string[] SortedDepartmentNames() { 
             return [.. _people
                 .Select(p => p.Department)
                 .Distinct()
