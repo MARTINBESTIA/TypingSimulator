@@ -15,13 +15,10 @@ using PeopleDepartment.CommonLibrary;
 
 namespace PeopleDepartment.EditorWpfApp
 {
-    /// <summary>
-    /// Interaction logic for AddPersonDialog.xaml
-    /// </summary>
     public partial class AddPersonDialog : Window
     {
-        private PersonCollection _personCollection;
-        private Person? selectedPerson;
+        private readonly PersonCollection _personCollection;
+        private readonly Person? selectedPerson;
         public AddPersonDialog(PersonCollection collection, Person? selectedPerson)
         {
             InitializeComponent();
@@ -49,8 +46,6 @@ namespace PeopleDepartment.EditorWpfApp
                 selectedPerson.Department = DepartmentBox.Text;
                 selectedPerson.FirstName = FirstNameBox.Text;
                 selectedPerson.LastName = LastNameBox.Text;
-                //selectedPerson.TitleBefore = TitleBeforeBox.Text; Opytat sa Totha
-                //TitleAfter = TitleAfterBox.Text;
                 selectedPerson.DisplayName = TitleBeforeBox.Text + " " + FirstNameBox.Text + " " + LastNameBox.Text + ", " + TitleAfterBox.Text;
                 this.DialogResult = true;
             }

@@ -3,6 +3,7 @@ using System.CommandLine;
 using System.IO;
 using System.Security.Cryptography;
 using PeopleDepartment.CommonLibrary;
+using static System.Net.WebRequestMethods;
 
 namespace PeopleDepartment.ReportConsoleApp
 {
@@ -18,7 +19,7 @@ namespace PeopleDepartment.ReportConsoleApp
             {
                 IsRequired = true // vygeneroval chatgpt
             };
-            var outputFolder = new Option<string>("--output", () => null);
+            var outputFolder = new Option<string>("--output", () => "");
             var rootComand = new RootCommand("Process")
             {
                 inputFile,
@@ -32,11 +33,9 @@ namespace PeopleDepartment.ReportConsoleApp
         private static void WriteOut(string pInputFile, string pTemplate, string pOutputFolder)
         {
             PersonCollection collection = [];
-            string[] templateLines = [];
             try
             {
                 collection.LoadFromCsv(new FileInfo(pInputFile));
-                templateLines = File.ReadAllLines(pTemplate);
             }
             catch (FileNotFoundException)
             {
@@ -51,7 +50,7 @@ namespace PeopleDepartment.ReportConsoleApp
             string reportFolderPath = "";
             if (pOutputFolder != null) // nenasiel som nikde v slidoch o priecinkoch tak som si tuto vetvu vygeneroval AI
             {
-                reportFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "Reporty");
+                reportFolderPath = Path.Combine(Directory.GetCurrentDirectory(), pOutputFolder);
 
                 if (!Directory.Exists(reportFolderPath))
                 {
@@ -62,14 +61,14 @@ namespace PeopleDepartment.ReportConsoleApp
             foreach (var coll in collection.GenerateDepartmentReports())
             {
                 using var sw = new StreamWriter(Path.Combine(reportFolderPath, coll.Department + ".txt"));
-                foreach (var line in templateLines)
+                foreach (var line in System.IO.File.ReadAllLines(pTemplate))
                 {
                     string[] splittedLine = line.Split(' ');
 
                     foreach (var word in splittedLine)
                     {
                         string word1 = ProcessWord(word, coll);
-                        if (pOutputFolder == null)
+                        if (pOutputFolder ==  "")
                         {
                             Console.Write(word1 + " ");
                         }
@@ -78,7 +77,7 @@ namespace PeopleDepartment.ReportConsoleApp
                             sw.Write(word1 + " ");
                         }
                     }
-                    if (pOutputFolder == null)
+                    if (pOutputFolder == "")
                     {
                         Console.WriteLine();
                     }

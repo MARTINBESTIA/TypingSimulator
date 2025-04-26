@@ -24,9 +24,8 @@ namespace PeopleDepartment.CommonLibrary
             _position = position;
             _email = email;
             _department = department;
-            TitleBefore = SetTitleBefore(); // tieto by mali niekedy vracat aj null ale zatial nevracaju nikdy null, ked tak potom odstranit, aj vsetky ostatne argumenty
+            TitleBefore = SetTitleBefore(); 
             TitleAfter = SetTitleAfter();
-
         }
 
         public string FirstName 
@@ -124,7 +123,6 @@ namespace PeopleDepartment.CommonLibrary
                     break;
                 }
             }
-            string s = String.Join(' ', slices[0..indexOfName]);
             return String.Join(' ', slices[0..indexOfName]); // https://learn.microsoft.com/en-us/dotnet/api/system.string.join?view=net-9.0
 
         }

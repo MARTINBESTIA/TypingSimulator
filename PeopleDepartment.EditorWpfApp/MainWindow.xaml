@@ -51,7 +51,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <!-- Kód skopírovaný z WPFSamples/Samples/Data Binding/EditingCollections-->
-            <ListView x:Name="itemsControl" Grid.Column="0" Margin="4,0,60,0" SelectionChanged="itemsControl_Selected"  ItemsSource="{Binding PersonList}">
+            <ListView x:Name="itemsControl" Grid.Column="0" Margin="4,0,60,0" SelectionChanged="ItemsControl_Selected"  ItemsSource="{Binding PersonList}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Display Name" Width="150" DisplayMemberBinding="{Binding Path=DisplayName}"/>

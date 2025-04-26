@@ -11,10 +11,9 @@ namespace PeopleDepartment.CommonLibrary
 {
     public class PersonCollection : ICollection<Person>, INotifyCollectionChanged
     {
-        private List<Person> _people = [];
+        private readonly List<Person> _people = [];
         public int Count => _people.Count;
         public bool IsReadOnly => false;
-
         public event NotifyCollectionChangedEventHandler? CollectionChanged;
         public void Add(Person item)
         {
@@ -56,18 +55,26 @@ namespace PeopleDepartment.CommonLibrary
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return _people.GetEnumerator(); 
+            return _people.GetEnumerator();
         }
-        public void LoadFromCsv(FileInfo csvFile) 
+        public void LoadFromCsv(FileInfo csvFile)
         {
             using var sr = new StreamReader(csvFile.FullName);
-            string? line;
-            line = sr.ReadLine();
-            string[] values = line.Split(';');
-            if (values[0] == "FirstName") 
+            string? line = sr.ReadLine();
+            string[] values = [];
+            if (line != null)
+            {
+                values = line.Split(';');
+            }
+
+            if (values[0] == "FirstName")
             {
                 line = sr.ReadLine();
-                values = line.Split(';');
+                if (line != null)
+                {
+                    values = line.Split(';');
+                }
+
             }
             Add(new Person(values[0], values[1], values[2], values[3], values[4], values[5]));
             while ((line = sr.ReadLine()) != null)
@@ -86,7 +93,7 @@ namespace PeopleDepartment.CommonLibrary
             }
             sw.Close();
         }
-        public DepartmentReport[] GenerateDepartmentReports() 
+        public DepartmentReport[] GenerateDepartmentReports()
         {
             DepartmentReport[] report = new DepartmentReport[SortedDepartmentNames().Length];
             for (int i = 0; i < SortedDepartmentNames().Length; i++)
@@ -122,14 +129,15 @@ namespace PeopleDepartment.CommonLibrary
                 .Count();
         }
 
-        public string[] SortedDepartmentNames() { 
+        public string[] SortedDepartmentNames()
+        {
             return [.. _people
                 .Select(p => p.Department)
                 .Distinct()
                 .OrderBy(p => p)];
         }
-        private Person? GetHeadOfDepartment(string dep) 
-        { 
+        private Person? GetHeadOfDepartment(string dep)
+        {
             return _people
                 .Where(p => p.Department == dep)
                 .FirstOrDefault(p => p.Position == "vedúci");
@@ -160,8 +168,8 @@ namespace PeopleDepartment.CommonLibrary
                 .Count(p => p.TitleBefore!.Split(' ')[0] == "doc."); // tu mam operator vykricnik pretoze doslova kokntrolujem ze TitleBefore nie je null,
                                                                      // ale aj tak hadze message tak neviem uz
         }
-        private Person[] GetEmployees(string dep) 
-        { 
+        private Person[] GetEmployees(string dep)
+        {
             return [.. _people
                 .Where(p => p.Department == dep && p.Position != "doktorand")
                 .OrderBy(p => p.FirstName)

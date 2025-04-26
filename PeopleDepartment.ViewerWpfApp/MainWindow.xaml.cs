@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,12 +6,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PeopleDepartment.CommonLibrary;
 
-namespace PeopleDepartment.EditorWpfApp
+namespace PeopleDepartment.ViewerWpfApp
 {
-    public partial class DepartmentViewer : Window
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
     {
         private readonly DepartmentReport[] _reports;
         private readonly PersonCollection _personCollection;
@@ -24,7 +24,8 @@ namespace PeopleDepartment.EditorWpfApp
         public IEnumerable<Person>? Employees { get; set; }
         public IEnumerable<Person>? PhDStudents { get; set; }
         public string[] DepartmentNames { get; }
-        public DepartmentViewer(PersonCollection people)
+        
+        public MainWindow(PersonCollection people)
         {
             _personCollection = people;
             _reports = _personCollection.GenerateDepartmentReports();
@@ -37,6 +38,35 @@ namespace PeopleDepartment.EditorWpfApp
             Dropdown.SelectedIndex = _selectedIndex;
             Dropdown.Items.Refresh();
             Update();
+
+        }
+
+        private void Dropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _selectedIndex = Dropdown.SelectedIndex;
+            Update();
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e) // celu tuto metodu poradilo AI
+        {
+            if (_resizing) return;
+
+            _resizing = true;
+
+
+            double desiredWidth = e.NewSize.Height * 2;
+            double newHeight = e.NewSize.Width / 2;
+
+            if (e.WidthChanged)
+            {
+                this.Height = newHeight;
+            }
+            else if (e.HeightChanged)
+            {
+                this.Width = desiredWidth;
+            }
+
+            _resizing = false;
         }
         private void Update()
         {
@@ -56,30 +86,6 @@ namespace PeopleDepartment.EditorWpfApp
             itemsControlPhDs.Items.Refresh();
         }
 
-        private void Dropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            _selectedIndex = Dropdown.SelectedIndex;
-            Update();
-        }
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e) // celu tuto metodu poradilo AI
-        {
-            if (_resizing) return;
-
-            _resizing = true;
-            double desiredWidth = e.NewSize.Height * 2;
-            double newHeight = e.NewSize.Width / 2;
-
-            if (e.WidthChanged)
-            {
-                this.Height = newHeight;
-            }
-            else if (e.HeightChanged)
-            {
-                this.Width = desiredWidth;
-            }
-
-            _resizing = false;
-        }
     }
 }

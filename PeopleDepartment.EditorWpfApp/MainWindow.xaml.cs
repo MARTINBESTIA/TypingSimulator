@@ -31,12 +31,6 @@ namespace PeopleDepartment.EditorWpfApp
             PersonList.CollectionChanged += SetWindowChanged;
             PersonList.CollectionChanged += UpdateCount;
         }
-        
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
 
         private void New_Click(object sender, RoutedEventArgs e)
         {
@@ -52,32 +46,22 @@ namespace PeopleDepartment.EditorWpfApp
         {
             SaveFile();
         }
-
         private void View_Click(object sender, RoutedEventArgs e)
         {
             new DepartmentViewer(PersonList).ShowDialog();
         }
-
         private void FileNew_Click(object sender, RoutedEventArgs e)
         {
             NewFile();
         }
-
         private void FileOpen_Click(object sender, RoutedEventArgs e)
         {
             OpenFile();
         }
-
         private void FileSave_Click(object sender, RoutedEventArgs e)
         {
             SaveFile();
         }
-
-        private void FilePrint_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void FileExit_Click(object sender, RoutedEventArgs e)
         {
             bool saved = false;
@@ -100,50 +84,48 @@ namespace PeopleDepartment.EditorWpfApp
             }
             if (saved) this.Close();
         }
-
         private void SetWindowChanged(object? sender, NotifyCollectionChangedEventArgs e)
         {
             windowChanged = true;
         }
         private void UpdateCount(object? sender, NotifyCollectionChangedEventArgs e)
         {
-            CountText.Text = PersonList.Count().ToString();
+            CountText.Text = PersonList.Count.ToString();
         }
         private bool SaveFile()
         {                   // https://learn.microsoft.com/en-us/dotnet/api/microsoft.win32.savefiledialog?view=windowsdesktop-9.0
-            SaveFileDialog dlg = new();
-            dlg.FileName = "Document"; // Default file name
-            dlg.DefaultExt = ".csv"; // Default file extension
-            dlg.Filter = "Text documents (.csv)|*.csv"; // Filter files by extension
+            SaveFileDialog dlg = new()
+            {
+                FileName = "Document", // Default file name
+                DefaultExt = ".csv", // Default file extension
+                Filter = "Text documents (.csv)|*.csv" // Filter files by extension
+            };
 
             // Show save file dialog box
             var result = dlg.ShowDialog();
-
-            // Process save file dialog box results
+            if (result.HasValue == false) return false;
             if (result.Value)
             {
                 PersonList.SaveToCsv(new FileInfo(dlg.FileName));
                 fileSaved = true;
-                string filename = dlg.FileName;
                 return true;
             }
             return false;
         }
         private void OpenFile() {
-            var fileContent = string.Empty;
-            var filePath = string.Empty;
 
-            OpenFileDialog openFileDialog = new();
-            openFileDialog.InitialDirectory = "c:\\";
-            openFileDialog.Filter = "csv files (*.csv)|*.csv|All files (*.*)|*.*";
-            openFileDialog.FilterIndex = 2;
-            openFileDialog.RestoreDirectory = true;
+            OpenFileDialog openFileDialog = new()
+            {
+                InitialDirectory = "c:\\",
+                Filter = "csv files (*.csv)|*.csv|All files (*.*)|*.*",
+                FilterIndex = 2,
+                RestoreDirectory = true
+            };
 
             if (openFileDialog.ShowDialog() == true)
             {
                 PersonList.Clear();
-                filePath = openFileDialog.FileName;
-                PersonList.LoadFromCsv(new FileInfo(filePath));
+                PersonList.LoadFromCsv(new FileInfo(openFileDialog.FileName));
             }
             windowChanged = false;
             fileSaved = true;
@@ -186,7 +168,7 @@ namespace PeopleDepartment.EditorWpfApp
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new AddPersonDialog(PersonList, null).ShowDialog();
+            new AddPersonDialog(PersonList, null).ShowDialog();
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
@@ -194,7 +176,7 @@ namespace PeopleDepartment.EditorWpfApp
             var selected = (Person)itemsControl.SelectedItem;
             if (selected != null)
             {
-                var dialog = new AddPersonDialog(PersonList, selected).ShowDialog();
+                new AddPersonDialog(PersonList, selected).ShowDialog();
             }
             itemsControl.Items.Refresh();
         }
@@ -220,8 +202,7 @@ namespace PeopleDepartment.EditorWpfApp
                 itemsControl.Items.Refresh();
             }
         }
-
-        private void itemsControl_Selected(object sender, RoutedEventArgs e)
+        private void ItemsControl_Selected(object sender, RoutedEventArgs e)
         {
             Person selected = (Person)itemsControl.SelectedItem;
             if (selected == null)
@@ -239,12 +220,6 @@ namespace PeopleDepartment.EditorWpfApp
                 removeButton.IsEnabled = true;
             }
         }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ShowAboutWindow_Click(object sender, RoutedEventArgs e)
         {
            new AboutWindow().ShowDialog();
