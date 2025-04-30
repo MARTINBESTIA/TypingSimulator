@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PeopleDepartment.CommonLibrary;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace PeopleDepartment.EditorWpfApp
 {
@@ -46,13 +47,27 @@ namespace PeopleDepartment.EditorWpfApp
                 selectedPerson.Department = DepartmentBox.Text;
                 selectedPerson.FirstName = FirstNameBox.Text;
                 selectedPerson.LastName = LastNameBox.Text;
-                selectedPerson.DisplayName = TitleBeforeBox.Text + " " + FirstNameBox.Text + " " + LastNameBox.Text + ", " + TitleAfterBox.Text;
+                if (TitleAfterBox.Text != null && TitleAfterBox.Text != "")
+                {
+                    selectedPerson.DisplayName = TitleBeforeBox.Text + " " + FirstNameBox.Text + " " + LastNameBox.Text + ", " + TitleAfterBox.Text;
+                }
+                else {
+                    selectedPerson.DisplayName = TitleBeforeBox.Text + " " + FirstNameBox.Text + " " + LastNameBox.Text;
+                }
                 this.DialogResult = true;
             }
             else
             {
-                string displayName = TitleBeforeBox.Text + " " + FirstNameBox.Text + " " + LastNameBox.Text + ", " + TitleAfterBox.Text;
-                _personCollection.Add(new Person(FirstNameBox.Text, LastNameBox.Text, displayName, PositionBox.Text, EmailBox.Text, DepartmentBox.Text));
+                if (TitleAfterBox.Text != null && TitleAfterBox.Text != "")
+                {
+                    string displayName = TitleBeforeBox.Text + " " + FirstNameBox.Text + " " + LastNameBox.Text + ", " + TitleAfterBox.Text;
+                    _personCollection.Add(new Person(FirstNameBox.Text, LastNameBox.Text, displayName, PositionBox.Text, EmailBox.Text, DepartmentBox.Text));
+                }
+                else
+                {
+                    string displayName = TitleBeforeBox.Text + " " + FirstNameBox.Text + " " + LastNameBox.Text;
+                    _personCollection.Add(new Person(FirstNameBox.Text, LastNameBox.Text, displayName, PositionBox.Text, EmailBox.Text, DepartmentBox.Text));
+                }
                 this.DialogResult = true;
             }
         }
@@ -64,7 +79,14 @@ namespace PeopleDepartment.EditorWpfApp
 
         private void UpdateDisplayName(object sender, TextChangedEventArgs e)
         {
-            DisplayNameBox.Text = TitleBeforeBox.Text + " " + FirstNameBox.Text + " " + LastNameBox.Text + ", " + TitleAfterBox.Text;
+            if (TitleAfterBox.Text != null && TitleAfterBox.Text != "")
+            {
+                DisplayNameBox.Text = TitleBeforeBox.Text + " " + FirstNameBox.Text + " " + LastNameBox.Text + ", " + TitleAfterBox.Text;
+            }
+            else
+            {
+                DisplayNameBox.Text = TitleBeforeBox.Text + " " + FirstNameBox.Text + " " + LastNameBox.Text;
+            }
         }
     }
 }

@@ -25,7 +25,9 @@
                     <MenuItem Header="_Exit" Click="FileExit_Click" />
                 </MenuItem>
                 <MenuItem Header="Edit">
-
+                    <MenuItem Header="Add..." Click="Add_Click" />
+                    <MenuItem x:Name="dockEdit" Header="Edit..." Click="Edit_Click" Opacity="0.5"/>
+                    <MenuItem x:Name="dockRemove" Header="Remove" Click="Remove_Click" Opacity="0.5"/>
                 </MenuItem>
                 <MenuItem Header="View">
                     <MenuItem Header="View by Department..." Click="View_Click" />

@@ -19,7 +19,7 @@
             <RowDefinition Height="40" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button Content="Open:" Width="90"  Height="30" FontSize="15" FontWeight="Normal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Margin="5, 0, 0, 0"/>
+        <Button Content="Open:" Visibility="Visible" Width="90"  Height="30" FontSize="15" FontWeight="Normal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Margin="5, 0, 0, 0"/>
         <Label Content="Head:" FontSize="15" FontWeight="ExtraBold" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0"/>
         <Label Content="Deputy:" FontSize="15" FontWeight="ExtraBold" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
         <Label Content="Secretary:" FontSize="15" FontWeight="ExtraBold" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>

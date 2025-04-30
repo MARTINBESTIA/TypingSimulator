@@ -16,7 +16,6 @@ using PeopleDepartment.CommonLibrary;
 
 namespace PeopleDepartment.EditorWpfApp
 {
-    
     public partial class MainWindow : Window
     {
         public bool windowChanged = false;
@@ -31,17 +30,14 @@ namespace PeopleDepartment.EditorWpfApp
             PersonList.CollectionChanged += SetWindowChanged;
             PersonList.CollectionChanged += UpdateCount;
         }
-
         private void New_Click(object sender, RoutedEventArgs e)
         {
             NewFile();
         }
-
         private void Open_Click(object sender, RoutedEventArgs e) // https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.openfiledialog?view=windowsdesktop-9.0
         {
             OpenFile();
         }
-
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             SaveFile();
@@ -65,6 +61,10 @@ namespace PeopleDepartment.EditorWpfApp
         private void FileExit_Click(object sender, RoutedEventArgs e)
         {
             bool saved = false;
+            if (fileSaved || PersonList.Count == 0) {
+                this.Close();
+                return;
+            };
             if (windowChanged)
             {
                 var result = MessageBox.Show("The collection has been modified. Do you want to save it?",
@@ -79,7 +79,6 @@ namespace PeopleDepartment.EditorWpfApp
                         break;
                     case MessageBoxResult.None:
                         break;
-
                 }
             }
             if (saved) this.Close();
@@ -87,6 +86,7 @@ namespace PeopleDepartment.EditorWpfApp
         private void SetWindowChanged(object? sender, NotifyCollectionChangedEventArgs e)
         {
             windowChanged = true;
+            fileSaved = false;
         }
         private void UpdateCount(object? sender, NotifyCollectionChangedEventArgs e)
         {
@@ -100,7 +100,6 @@ namespace PeopleDepartment.EditorWpfApp
                 DefaultExt = ".csv", // Default file extension
                 Filter = "Text documents (.csv)|*.csv" // Filter files by extension
             };
-
             // Show save file dialog box
             var result = dlg.ShowDialog();
             if (result.HasValue == false) return false;
@@ -121,7 +120,6 @@ namespace PeopleDepartment.EditorWpfApp
                 FilterIndex = 2,
                 RestoreDirectory = true
             };
-
             if (openFileDialog.ShowDialog() == true)
             {
                 PersonList.Clear();
@@ -158,19 +156,16 @@ namespace PeopleDepartment.EditorWpfApp
 
                     windowChanged = false;
             }
-            
             if (fileSaved)
             {
                 PersonList.Clear();
                 windowChanged = false;
             }
         }
-
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             new AddPersonDialog(PersonList, null).ShowDialog();
         }
-
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             var selected = (Person)itemsControl.SelectedItem;
@@ -180,7 +175,6 @@ namespace PeopleDepartment.EditorWpfApp
             }
             itemsControl.Items.Refresh();
         }
-
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
             Person selected = (Person)itemsControl.SelectedItem;
@@ -195,7 +189,6 @@ namespace PeopleDepartment.EditorWpfApp
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question // poradilo AI tento riadok
             );
-
             if (result == MessageBoxResult.Yes)
             {
                 PersonList.Remove(selected);
@@ -209,15 +202,23 @@ namespace PeopleDepartment.EditorWpfApp
             {
                 editButton.Opacity = 0.5;
                 removeButton.Opacity = 0.5;
+                dockEdit.Opacity = 0.5;
+                dockRemove.Opacity = 0.5;
                 editButton.IsEnabled = false;
                 removeButton.IsEnabled = false;
+                dockEdit.IsEnabled = false;
+                dockRemove.IsEnabled = false;
             }
             else
             {
                 editButton.Opacity = 1;
                 removeButton.Opacity = 1;
+                dockEdit.Opacity = 1;
+                dockRemove.Opacity = 1;
                 editButton.IsEnabled = true;
                 removeButton.IsEnabled = true;
+                dockEdit.IsEnabled = true;
+                dockRemove.IsEnabled = true;
             }
         }
         private void ShowAboutWindow_Click(object sender, RoutedEventArgs e)

@@ -21,18 +21,15 @@ namespace PeopleDepartment.CommonLibrary
             _people.Add(item);
             CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item, index));// vygenereovane
         }
-
         public void Clear()
         {
             _people.Clear();
             CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
         }
-
         public bool Contains(Person item)
         {
             return _people.Contains(item);
         }
-
         public void CopyTo(Person[] array, int arrayIndex)
         {
             _people.CopyTo(array, arrayIndex);
@@ -41,7 +38,6 @@ namespace PeopleDepartment.CommonLibrary
         {
             return _people.GetEnumerator();
         }
-
         public bool Remove(Person item)
         {
             int index = _people.IndexOf(item);
@@ -52,7 +48,6 @@ namespace PeopleDepartment.CommonLibrary
             }
             return _people.Remove(item);
         }
-
         IEnumerator IEnumerable.GetEnumerator()
         {
             return _people.GetEnumerator();
@@ -66,7 +61,6 @@ namespace PeopleDepartment.CommonLibrary
             {
                 values = line.Split(';');
             }
-
             if (values[0] == "FirstName")
             {
                 line = sr.ReadLine();
@@ -74,7 +68,6 @@ namespace PeopleDepartment.CommonLibrary
                 {
                     values = line.Split(';');
                 }
-
             }
             Add(new Person(values[0], values[1], values[2], values[3], values[4], values[5]));
             while ((line = sr.ReadLine()) != null)
@@ -114,14 +107,12 @@ namespace PeopleDepartment.CommonLibrary
             }
             return report;
         }
-
         private int GetNumberOfPhDStudents(string dep)
         {
             return _people
                 .Where(p => p.Department == dep && p.Position == "doktorand")
                 .Count();
         }
-
         private int GetNumberOfEmployees(string dep)
         {
             return _people
@@ -172,15 +163,15 @@ namespace PeopleDepartment.CommonLibrary
         {
             return [.. _people
                 .Where(p => p.Department == dep && p.Position != "doktorand")
-                .OrderBy(p => p.FirstName)
-                .ThenBy(p => p.LastName)];
+                .OrderBy(p => p.LastName)
+                .ThenBy(p => p.FirstName)];
         }
         private Person[] GetPhDStudents(string dep)
         {
             return [.. _people
                 .Where(p => p.Department == dep && p.Position == "doktorand")
-                .OrderBy(p => p.FirstName)
-                .ThenBy(p => p.LastName)];
+                .OrderBy(p => p.LastName)
+                .ThenBy(p => p.FirstName)];
         }
     }
 }

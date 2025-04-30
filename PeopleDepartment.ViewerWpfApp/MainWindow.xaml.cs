@@ -12,9 +12,6 @@ using PeopleDepartment.CommonLibrary;
 
 namespace PeopleDepartment.ViewerWpfApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private readonly DepartmentReport[] _reports;
@@ -24,7 +21,6 @@ namespace PeopleDepartment.ViewerWpfApp
         public IEnumerable<Person>? Employees { get; set; }
         public IEnumerable<Person>? PhDStudents { get; set; }
         public string[] DepartmentNames { get; }
-        
         public MainWindow(PersonCollection people)
         {
             _personCollection = people;
@@ -38,25 +34,18 @@ namespace PeopleDepartment.ViewerWpfApp
             Dropdown.SelectedIndex = _selectedIndex;
             Dropdown.Items.Refresh();
             Update();
-
         }
-
         private void Dropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _selectedIndex = Dropdown.SelectedIndex;
             Update();
         }
-
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e) // celu tuto metodu poradilo AI
         {
             if (_resizing) return;
-
             _resizing = true;
-
-
             double desiredWidth = e.NewSize.Height * 2;
             double newHeight = e.NewSize.Width / 2;
-
             if (e.WidthChanged)
             {
                 this.Height = newHeight;
@@ -65,7 +54,6 @@ namespace PeopleDepartment.ViewerWpfApp
             {
                 this.Width = desiredWidth;
             }
-
             _resizing = false;
         }
         private void Update()
@@ -85,7 +73,5 @@ namespace PeopleDepartment.ViewerWpfApp
             itemsControlEmployees.Items.Refresh();
             itemsControlPhDs.Items.Refresh();
         }
-
-
     }
 }

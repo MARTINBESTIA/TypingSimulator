@@ -15,7 +15,6 @@ namespace PeopleDepartment.CommonLibrary
         private string? _position;
         private string? _email;
         private string _department;
-
         public Person(string firstName, string lastName, string displayName, string? position, string email, string department)
         {
             _firstName = firstName;
@@ -27,7 +26,6 @@ namespace PeopleDepartment.CommonLibrary
             TitleBefore = SetTitleBefore(); 
             TitleAfter = SetTitleAfter();
         }
-
         public string FirstName 
         {   
             get => _firstName;
@@ -46,7 +44,6 @@ namespace PeopleDepartment.CommonLibrary
                 _lastName = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_lastName)));
             }
-
         }
         public string DisplayName
         {
@@ -54,13 +51,14 @@ namespace PeopleDepartment.CommonLibrary
             set
             {
                 _displayName = value;
+                TitleBefore = SetTitleBefore();
+                TitleAfter = SetTitleAfter();
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_displayName)));
             }
-
         }
-        public string? TitleBefore { get; } // tieto dva by mali byt readonly podla zadania ale potom mi DataBinding v MainWindow nedokaze precitat
-                                            // TitleBefore a TitleAfter
-        public string? TitleAfter { get; }
+        public string? TitleBefore { get; private set; }// tieto dva by mali byt readonly podla zadania ale potom mi DataBinding v MainWindow nedokaze precitat
+                                           // TitleBefore a TitleAfter
+        public string? TitleAfter { get; private set; }
         public string Position
         {
             get
@@ -76,7 +74,6 @@ namespace PeopleDepartment.CommonLibrary
                 _position = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_position)));
             }
-
         }
         public string Email
         {
@@ -93,7 +90,6 @@ namespace PeopleDepartment.CommonLibrary
                 _email = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_email)));
             }
-
         }
         public string Department
         {
@@ -103,10 +99,8 @@ namespace PeopleDepartment.CommonLibrary
                 _department = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_department)));
             }
-
         }
         public event PropertyChangedEventHandler? PropertyChanged;
-
         public string ToFormattedString() 
         {
             return $"{DisplayName, -40}{Email}";
@@ -118,13 +112,11 @@ namespace PeopleDepartment.CommonLibrary
             {
                 if (slices[i] == FirstName)
                 {
-
                     indexOfName = i;
                     break;
                 }
             }
             return String.Join(' ', slices[0..indexOfName]); // https://learn.microsoft.com/en-us/dotnet/api/system.string.join?view=net-9.0
-
         }
         private string SetTitleAfter()
         {

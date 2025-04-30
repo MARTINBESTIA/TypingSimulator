@@ -29,7 +29,6 @@ namespace PeopleDepartment.ReportConsoleApp
             rootComand.SetHandler(WriteOut, inputFile, template, outputFolder);
             return rootComand.Invoke(args);
         }
-
         private static void WriteOut(string pInputFile, string pTemplate, string pOutputFolder)
         {
             PersonCollection collection = [];
@@ -57,77 +56,34 @@ namespace PeopleDepartment.ReportConsoleApp
                     Directory.CreateDirectory(reportFolderPath);
                 }
             }
-
             foreach (var coll in collection.GenerateDepartmentReports())
             {
                 using var sw = new StreamWriter(Path.Combine(reportFolderPath, coll.Department + ".txt"));
                 foreach (var line in System.IO.File.ReadAllLines(pTemplate))
                 {
-                    string[] splittedLine = line.Split(' ');
-
-                    foreach (var word in splittedLine)
-                    {
-                        string word1 = ProcessWord(word, coll);
-                        if (pOutputFolder ==  "")
-                        {
-                            Console.Write(word1 + " ");
-                        }
-                        else
-                        {
-                            sw.Write(word1 + " ");
-                        }
-                    }
+                    string s = line.Replace("[[Department]]", coll.Department).Replace("[[Head]]", ProccessIndWord(coll.Head)) //.Replace poradené vami
+                        .Replace("[[Deputy]]", ProccessIndWord(coll.Deputy)).Replace("[[Secretary]]", ProccessIndWord(coll.Secretary))
+                        .Replace("[[NumberOfProfessors]]", coll.NumberOfProfessors.ToString()).Replace("[[NumberOfAssociateProfessors]]", coll.NumberOfAssociateProffesors.ToString())
+                        .Replace("[[NumberOfEmployees]]", coll.NumberOfEmployees.ToString()).Replace("[[NumberOfPhDStudents]]", coll.NumberOfPhDStudents.ToString())
+                        .Replace("[[Employees]]", string.Join('\n', coll.Employees.Select(p => p.ToFormattedString()))).Replace("[[PhDStudents]]", string.Join('\n', coll.PhDStudents.Select(p => p.ToFormattedString())));
                     if (pOutputFolder == "")
                     {
-                        Console.WriteLine();
+                        Console.WriteLine(s);
                     }
                     else
                     {
-                        sw.WriteLine();
+                        sw.WriteLine(s);
                     }
                 }
                 sw.Close();
             }
         }
-
-        private static string ProcessWord(string word, DepartmentReport report)
+        private static string ProccessIndWord(Person? p)
         {
-            switch (word)
+            if (p == null) return "----";
+            else
             {
-                case "[[Department]]":
-                    return report.Department;
-                case "[[Head]]":
-                    if (report.Head == null)
-                    {
-                        return "---";
-                    }
-                    return report.Head.DisplayName;
-                case "[[Deputy]]":
-                    if (report.Deputy == null)
-                    {
-                        return "---";
-                    }
-                    return report.Deputy.DisplayName;
-                case "[[Secretary]]":
-                    if (report.Secretary == null)
-                    {
-                        return "---";
-                    }
-                    return report.Secretary.DisplayName;
-                case "[[NumberOfProfessors]]":
-                    return report.NumberOfProfessors.ToString();
-                case "[[NumberOfAssociateProfessors]]":
-                    return report.NumberOfAssociateProffesors.ToString();
-                case "[[NumberOfEmployees]]":
-                    return report.NumberOfEmployees.ToString();
-                case "[[NumberOfPhDStudents]]":
-                    return report.NumberOfPhDStudents.ToString();
-                case "[[Employees]]":
-                    return string.Join('\n', report.Employees.Select(p => p.ToFormattedString()));
-                case "[[PhDStudents]]":
-                    return string.Join('\n', report.PhDStudents.Select(p => p.ToFormattedString()));
-                default:
-                    return word;
+                return p.DisplayName;
             }
         }
     }

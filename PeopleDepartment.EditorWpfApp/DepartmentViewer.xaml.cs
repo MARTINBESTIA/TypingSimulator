@@ -55,13 +55,11 @@ namespace PeopleDepartment.EditorWpfApp
             itemsControlEmployees.Items.Refresh();
             itemsControlPhDs.Items.Refresh();
         }
-
         private void Dropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _selectedIndex = Dropdown.SelectedIndex;
             Update();
         }
-
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e) // celu tuto metodu poradilo AI
         {
             if (_resizing) return;
