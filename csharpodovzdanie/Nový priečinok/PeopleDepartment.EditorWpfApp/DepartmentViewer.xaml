@@ -1,0 +1,77 @@
+﻿<Window x:Class="PeopleDepartment.EditorWpfApp.DepartmentViewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PeopleDepartment.EditorWpfApp"
+        mc:Ignorable="d"
+        Title="DepartmentViewer" Height="400" Width="800" SizeChanged="Window_SizeChanged">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="28" />
+            <RowDefinition Height="28" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Department:" FontSize="15" FontWeight="Normal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+        <Label Content="Head:" FontSize="15" FontWeight="ExtraBold" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0"/>
+        <Label Content="Deputy:" FontSize="15" FontWeight="ExtraBold" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+        <Label Content="Secretary:" FontSize="15" FontWeight="ExtraBold" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
+
+        <ComboBox x:Name="Dropdown" SelectionChanged="Dropdown_SelectionChanged" Grid.Column="1" ItemsSource="{Binding DepartmentNames}" Margin="2,10,5,10"/>
+        <Label x:Name="Head" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+        <Label x:Name="Deputy" Content="" FontSize="15"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"/>
+        <Label x:Name="Secretary" Content="" FontSize="15"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"/>
+        <Label Content="Employees:" FontSize="15" FontWeight="ExtraBold" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" Margin="0,0,0,0"/>
+        <Label Content="Count:" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1" Margin="0,0,35,0"/>
+        <Label x:Name="EmployeesCount"  Content="0" FontSize="15" FontWeight="ExtraBold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1" Margin="0,0,0,0"/>
+        <Grid Grid.Row="5" Grid.ColumnSpan="2" Margin="0,0,-55,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"  />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ListView x:Name="itemsControlEmployees" SelectionChanged="Dropdown_SelectionChanged" Margin="4,0,60,0" ItemsSource="{Binding Employees}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Display Name" Width="150" DisplayMemberBinding="{Binding Path=DisplayName}"/>
+                        <GridViewColumn Header="Title Before" Width="80" DisplayMemberBinding="{Binding Path=TitleBefore}"/>
+                        <GridViewColumn Header="First Name" Width="80" DisplayMemberBinding="{Binding Path=FirstName}"/>
+                        <GridViewColumn Header="Last Name" Width="80" DisplayMemberBinding="{Binding Path=LastName}"/>
+                        <GridViewColumn Header="Title After" Width="80" DisplayMemberBinding="{Binding Path=TitleAfter}"/>
+                        <GridViewColumn Header="Email" Width="150" DisplayMemberBinding="{Binding Path=Email}"/>
+                        <GridViewColumn Header="Position" Width="90" DisplayMemberBinding="{Binding Path=Position}"/>
+                        <GridViewColumn Header="Department" Width="150" DisplayMemberBinding="{Binding Path=Department}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Label Content="PhD. students:" FontSize="15" FontWeight="ExtraBold" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="0,7,0,0"/>
+            <Label Content="Count:" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="0,7,85,0"/>
+            <Label x:Name="PhDsCount" Content="0" FontSize="15" FontWeight="ExtraBold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="0,7,55,0"/>
+            <ListView x:Name="itemsControlPhDs" SelectionChanged="Dropdown_SelectionChanged" Margin="4,0,60,5" ItemsSource="{Binding PhDStudents}" Grid.Row="2">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Display Name" Width="150" DisplayMemberBinding="{Binding Path=DisplayName}"/>
+                        <GridViewColumn Header="Title Before" Width="80" DisplayMemberBinding="{Binding Path=TitleBefore}"/>
+                        <GridViewColumn Header="First Name" Width="80" DisplayMemberBinding="{Binding Path=FirstName}"/>
+                        <GridViewColumn Header="Last Name" Width="80" DisplayMemberBinding="{Binding Path=LastName}"/>
+                        <GridViewColumn Header="Title After" Width="80" DisplayMemberBinding="{Binding Path=TitleAfter}"/>
+                        <GridViewColumn Header="Email" Width="150" DisplayMemberBinding="{Binding Path=Email}"/>
+                        <GridViewColumn Header="Position" Width="90" DisplayMemberBinding="{Binding Path=Position}"/>
+                        <GridViewColumn Header="Department" Width="150" DisplayMemberBinding="{Binding Path=Department}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Grid>
+</Window>

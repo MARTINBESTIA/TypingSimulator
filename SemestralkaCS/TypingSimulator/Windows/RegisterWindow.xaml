@@ -1,0 +1,29 @@
+﻿<Window x:Class="TypingSimulator.Windows.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TypingSimulator.Windows"
+        mc:Ignorable="d"
+        Title="RegisterWindow" Height="230" Width="420" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="300" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Username: " Grid.Column="0" Grid.Row="0" FontSize="10" VerticalAlignment="Center"/>
+        <Label Content="Password: " Grid.Column="0" Grid.Row="1" FontSize="10" VerticalAlignment="Center"/>
+        <Label Content="Confirm Password: " Grid.Column="0" Grid.Row="2" FontSize="10" VerticalAlignment="Center"/>
+        <TextBox x:Name="UsernameBox" Grid.Row="0" Grid.Column="1" Width="280" Height="30"/>
+        <PasswordBox x:Name="RWPasswordBox" Grid.Row="1" Grid.Column="1" Width="280" Height="30"/>
+        <PasswordBox x:Name="RWConfirmpasswordBox" Grid.Row="2" Grid.Column="1" Width="280" Height="30"/>
+        <Button x:Name="RWOKbutton" Grid.Column="1" Grid.Row="3" Width="80" Height="20" Margin="210,5,10,25" Content="Register" Click="RWOKbutton_Click"/>
+    </Grid>
+</Window>

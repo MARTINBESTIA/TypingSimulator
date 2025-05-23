@@ -1,0 +1,80 @@
+﻿<Window x:Class="PeopleDepartment.EditorWpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PeopleDepartment.CommonLibrary;assembly=PeopleDepartment.CommonLibrary"   
+        mc:Ignorable="d"
+        Title="People Department Editor" Height="300" Width="700">
+    <!-- 3. Riadok odspodu nad my doplnilo AI -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <!-- Riadok nad a pod tymto komentarom poradilo AI -->
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <!-- Kód skopírovaný z WPFSamples/Smaples/Windows/DialogBox -->
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="File">
+                    <MenuItem Header="New" Click="FileNew_Click" />
+                    <MenuItem Header="Open..." Click="FileOpen_Click" />
+                    <MenuItem Header="Save As..." Click="FileSave_Click" />
+                    <Separator />
+                    <MenuItem Header="_Exit" Click="FileExit_Click" />
+                </MenuItem>
+                <MenuItem Header="Edit">
+                    <MenuItem Header="Add..." Click="Add_Click" />
+                    <MenuItem x:Name="dockEdit" Header="Edit..." Click="Edit_Click" Opacity="0.5"/>
+                    <MenuItem x:Name="dockRemove" Header="Remove" Click="Remove_Click" Opacity="0.5"/>
+                </MenuItem>
+                <MenuItem Header="View">
+                    <MenuItem Header="View by Department..." Click="View_Click" />
+                </MenuItem>
+                <MenuItem Header="Help">
+                    <MenuItem Header="About..." Click="ShowAboutWindow_Click" />
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <DockPanel Grid.Row="1">
+            <Button Content="New..." Width="50" Margin="4" Click="New_Click"/>
+            <Button Content="Open..." Width="60" Height="25" Margin="4" Click="Open_Click"/>
+            <Button Content="Save As..." Width="70" Height="25" Margin="4" Click="Save_Click"/>
+            <Button Content="View by department" Width="120" Height="25" Margin="4" Click="View_Click" HorizontalAlignment="Right" />
+        </DockPanel>
+        <Grid Grid.Row="2" Margin="0,0,0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"  />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!-- Kód skopírovaný z WPFSamples/Samples/Data Binding/EditingCollections-->
+            <ListView x:Name="itemsControl" Grid.Column="0" Margin="4,0,60,0" SelectionChanged="ItemsControl_Selected"  ItemsSource="{Binding PersonList}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Display Name" Width="150" DisplayMemberBinding="{Binding Path=DisplayName}"/>
+                        <GridViewColumn Header="Title Before" Width="80" DisplayMemberBinding="{Binding Path=TitleBefore}"/>
+                        <GridViewColumn Header="First Name" Width="80" DisplayMemberBinding="{Binding Path=FirstName}"/>
+                        <GridViewColumn Header="Last Name" Width="80" DisplayMemberBinding="{Binding Path=LastName}"/>
+                        <GridViewColumn Header="Title After" Width="80" DisplayMemberBinding="{Binding Path=TitleAfter}"/>
+                        <GridViewColumn Header="Email" Width="150" DisplayMemberBinding="{Binding Path=Email}"/>
+                        <GridViewColumn Header="Position" Width="90" DisplayMemberBinding="{Binding Path=Position}"/>
+                        <GridViewColumn Header="Department" Width="150" DisplayMemberBinding="{Binding Path=Department}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+                <Button Content="Add..." Width="50" Height="25" Margin="4" Click="Add_Click"/>
+                <Button x:Name="editButton" Content="Edit..." Width="50" Height="25" Margin="4" Opacity="0.5" Click="Edit_Click"/>
+                <Button x:Name="removeButton" Content="Remove" Width="50" Height="25" Margin="4" Opacity="0.5" Click="Remove_Click"/>
+                <TextBlock Text="Count: " Margin="4"/>
+                <TextBlock x:Name="CountText" FontSize="14" FontWeight="Bold"  Text="0" Width="51"/>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>
