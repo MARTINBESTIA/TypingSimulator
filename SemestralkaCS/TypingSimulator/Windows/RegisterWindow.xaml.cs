@@ -35,12 +35,12 @@ namespace TypingSimulator.Windows
                 MessageBox.Show("Passwords do not match");
                 return;
             }
-            if (new UsersDAO().UserExists(UsernameBox.Text))
+            if (UsersDAO.UserExists(UsernameBox.Text))
             {
                 MessageBox.Show("Username already exists");
                 return;
             }
-            new UsersDAO().InsertUser(UsernameBox.Text, RWPasswordBox.Password);
+            UsersDAO.InsertUser(UsernameBox.Text, RWPasswordBox.Password);
             MessageBox.Show("User succesfully created!");
             this.Close();
         }

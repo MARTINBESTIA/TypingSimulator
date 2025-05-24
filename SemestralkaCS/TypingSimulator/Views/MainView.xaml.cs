@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TypingSimulator.MainViewScripts;
+
 
 namespace TypingSimulator.Views
 {
@@ -20,9 +22,23 @@ namespace TypingSimulator.Views
     /// </summary>
     public partial class MainView : UserControl
     {
-        public MainView()
+        private readonly UserSession _userSession;
+        public MainView(UserSession userSession)
         {
+            _userSession = userSession;
             InitializeComponent();
+            UpdateGUITimers();
+            UserNameLabel.Content = "Welcome, " + _userSession.UserName + "!";
+        }
+
+        private async void UpdateGUITimers() 
+        {
+            while (true) 
+            {
+                TotalPlayTime.Content = "Total play time: " + _userSession.GetTotalTimeSpan();
+                TodayPlayTime.Content = "Session play time: " + _userSession.GetSessionTimeSpan();
+                await Task.Delay(1000); 
+            }    
         }
     }
 }

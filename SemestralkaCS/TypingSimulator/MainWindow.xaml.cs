@@ -23,7 +23,7 @@ namespace TypingSimulator
             InitializeComponent();
             var page = new LoginView();
             NavigateToPage(page);
-            new TableCreations().CreateUserTable();
+            TableCreations.CreateUserTable();
         }
         private void NavigateToPage(UserControl page)
         {

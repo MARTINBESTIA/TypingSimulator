@@ -5,8 +5,52 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TypingSimulator.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="300" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="Select language: " VerticalContentAlignment="Center" Grid.Column="0"/>
+            <ComboBox x:Name="LanguageComboBox" HorizontalAlignment="Stretch" Margin="5,0,10,0" VerticalAlignment="Center" Grid.Column="1">
+            <ComboBoxItem Content="English" />
+            <ComboBoxItem Content="Spanish" />
+            <ComboBoxItem Content="French" />
+            <ComboBoxItem Content="German" />
+        </ComboBox>
+        </Grid>
+        <Label x:Name="UserNameLabel" Content="Meno" Grid.Column="1" Grid.Row="0" FontWeight="ExtraBlack" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="25">
+        </Label>
+        <Label x:Name="errorLabel" Grid.Column="0" Grid.Row="1"/>
+        <Label x:Name="pressKeyLabel" Content="Press any key to start..." Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <Label x:Name="TodayPlayTime" Content="Session play time: " Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20"/>
+        <Label x:Name="TotalPlayTime" Content="totalPlayTime" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20"/>
+
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="WPMLabel" Grid.Row="0" Content="Words per minute: " HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20"/>
+            <Label x:Name="accuracyLabel" Grid.Row="1" Content="Accuracy: " HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20"/>
+            <Label x:Name="fffffff" Content="feee: " Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20"/>
+        </Grid>
+
+        <RichTextBox x:Name="TextField" Grid.Row="3" Margin="0,5,10,5"/>
+
     </Grid>
 </UserControl>

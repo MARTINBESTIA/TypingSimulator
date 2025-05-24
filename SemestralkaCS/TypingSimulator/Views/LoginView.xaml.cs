@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TypingSimulator.Windows;
 using TypingSimulator.SqlScripts;
+using TypingSimulator.MainViewScripts;
 
 namespace TypingSimulator.Views
 {
@@ -34,11 +35,16 @@ namespace TypingSimulator.Views
             if (PasswordBox.Password.Length == 0 || UserNameBox.Text.Length == 0) {
                 MessageBox.Show("Please fill in all fields");
             }
-            else if (new UsersDAO().UserExists(UserNameBox.Text))
+            else if (UsersDAO.UserExists(UserNameBox.Text))
             {
-                if (new UsersDAO().CheckPassword(UserNameBox.Text, PasswordBox.Password))
+                if (UsersDAO.CheckPassword(UserNameBox.Text, PasswordBox.Password))
                 {
-                    ViewNavigator.Navigate(new MainView());
+                    if (UsersDAO.GetUserId(UserNameBox.Text) == -1)
+                    {
+                        MessageBox.Show("User does not exist");
+                        return;
+                    }
+                    ViewNavigator.Navigate(new MainView(new UserSession(UsersDAO.GetUserId(UserNameBox.Text), UserNameBox.Text)));
                 }
                 else
                 {
