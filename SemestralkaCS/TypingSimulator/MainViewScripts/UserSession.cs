@@ -3,14 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using TypingSimulator.SqlScripts;
+
 
 namespace TypingSimulator.MainViewScripts
 {
-    public class UserSession(int userId, string userName)
+    public class UserSession
     {
-        private DateTime TimeSpanBegin { get; } = DateTime.Now;
-        public int UserId { get; } = userId;
-        public string UserName { get; } = userName;
+        public UserSession(int userId, string userName)
+        {
+            TimeSpanBegin = DateTime.Now;
+            UserId = userId;
+            UserName = userName;
+            Application.Current.Exit += SaveTotalTimeSpan;
+        }
+
+        private DateTime TimeSpanBegin { get; }
+        public int UserId { get; }
+        public string UserName { get; }
 
         public string GetSessionTimeSpan()
         {
@@ -24,6 +35,11 @@ namespace TypingSimulator.MainViewScripts
             return span.Duration().ToString(@"dd\:hh\:mm");
         }
 
+        internal void SaveTotalTimeSpan(object sender, ExitEventArgs e)
+        {
+            var span = DateTime.Now - TimeSpanBegin + SqlScripts.UsersDAO.GetUserTotalTimeSpan(UserId); 
+            UsersDAO.UpdateUserPlayTime(UserId, span);
+        }
     }
 
 }

@@ -17,11 +17,9 @@ using TypingSimulator.MainViewScripts;
 
 namespace TypingSimulator.Views
 {
-    /// <summary>
-    /// Interaction logic for MainView.xaml
-    /// </summary>
     public partial class MainView : UserControl
     {
+
         private readonly UserSession _userSession;
         public MainView(UserSession userSession)
         {
@@ -29,14 +27,16 @@ namespace TypingSimulator.Views
             InitializeComponent();
             UpdateGUITimers();
             UserNameLabel.Content = "Welcome, " + _userSession.UserName + "!";
+            TextField.Document.Blocks.Clear();
+            TextField.Document.Blocks.Add(new Paragraph(new Run("Type your text here...")));
         }
 
         private async void UpdateGUITimers() 
         {
             while (true) 
             {
-                TotalPlayTime.Content = "Total play time: " + _userSession.GetTotalTimeSpan();
-                TodayPlayTime.Content = "Session play time: " + _userSession.GetSessionTimeSpan();
+                TotalPlayTime.Content = _userSession.GetTotalTimeSpan();
+                TodayPlayTime.Content = _userSession.GetSessionTimeSpan();
                 await Task.Delay(1000); 
             }    
         }

@@ -81,5 +81,18 @@ namespace TypingSimulator.SqlScripts
                 return TimeSpan.Zero; 
             }
         }
+
+        public static void UpdateUserPlayTime(int userId, TimeSpan playTime)
+        {
+            string sql = @"
+    UPDATE Users SET PlayTime = @playTime WHERE Id = @userId;
+";
+            using var connection = new MySqlConnection("server=sql7.freesqldatabase.com;port=3306;database=sql7780834;user=sql7780834;password=eFL3xaXrCE");
+            connection.Open();
+            using var command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@playTime", playTime);
+            command.Parameters.AddWithValue("@userId", userId);
+            command.ExecuteNonQuery();
+        } 
     }
 }

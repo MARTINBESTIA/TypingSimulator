@@ -28,6 +28,7 @@ namespace TypingSimulator.Views
         {
             InitializeComponent();
             Console.WriteLine("LoginView initialized");
+
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
