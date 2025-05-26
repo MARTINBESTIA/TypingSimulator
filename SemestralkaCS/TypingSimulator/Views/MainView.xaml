@@ -26,13 +26,15 @@
             </Grid.ColumnDefinitions>
             <Label Content="Select language: " VerticalContentAlignment="Center" Grid.Column="0"/>
             <ComboBox x:Name="LanguageComboBox" HorizontalAlignment="Stretch" Margin="15,0,10,0" ItemsSource="{Binding LanguageTypes}" VerticalAlignment="Center" Grid.Column="1" SelectionChanged="LanguageComboBox_SelectionChanged">
-            
-        </ComboBox>
+            </ComboBox>
         </Grid>
         <Label x:Name="UserNameLabel" Content="Meno" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" FontWeight="ExtraBlack" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="25">
         </Label>
-        <Label x:Name="errorLabel" Grid.Column="0" Grid.Row="1"/>
-        <Label x:Name="pressKeyLabel" Content="Press any key to start..." Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+        <StackPanel x:Name="ButtonsPanel" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0">
+            <Button x:Name="ChangeSampleButton" Width="100" Height="30" Margin="5" Content="Change sample" Click="ChangeSampleButton_Click"/>
+            <Button x:Name="RestartTypingButton" Width="100" Height="30" Margin="5" Content="Restart typing" Click="RestartTypingButton_Click"/>
+        </StackPanel>
+        <Label x:Name="PressKeyLabel" Content="Press any key to start..." Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
         <Label x:Name="TodayPlayTimeLabel" Content="Session play time:" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
         <Label x:Name="TotalPlayTimeLabel" Content="Total Play Time:" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
         <Label x:Name="TodayPlayTime" Content="Session play time:" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20"/>
@@ -51,7 +53,7 @@
             </Grid.ColumnDefinitions>
             <Label x:Name="WPMLabelText" Grid.Row="0" Grid.Column="0" Content="Words per minute: " HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
             <Label x:Name="accuracyLabelText" Grid.Row="1" Grid.Column="0" Content="Accuracy: " HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
-            <Label x:Name="fffffffText" Content="Highest score: " Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
+            <Label x:Name="fffffffText" Content="Score: " Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
         </Grid>
 
         <Grid Grid.Row="3" Grid.Column="2">
@@ -64,11 +66,11 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="180" />
             </Grid.ColumnDefinitions>
-            <Label x:Name="WPMLabel" Grid.Row="0" Grid.Column="0" Content="val " HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
-            <Label x:Name="accuracyLabel" Grid.Row="1" Grid.Column="0" Content="val" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
-            <Label x:Name="fffffff" Content="val" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
+            <Label x:Name="WPMLabel" Grid.Row="0" Grid.Column="0" Content="---" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
+            <Label x:Name="AccuracyLabel" Grid.Row="1" Grid.Column="0" Content="---" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
+            <Label x:Name="Score" Content="---" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
 
         </Grid>
-        <RichTextBox x:Name="TextField" Grid.Row="3" Margin="0,5,10,5" FontSize="20" PreviewTextInput="TextField_TextInput" PreviewKeyDown="TextField_PreviewKeyDown"/>
+        <RichTextBox x:Name="TextField" Grid.Row="3" Grid.Column="0" Margin="0,5,10,5" FontSize="20" PreviewTextInput="TextField_TextInput" PreviewKeyDown="TextField_PreviewKeyDown" Loaded="TextField_Loaded"/>
     </Grid>
 </UserControl>

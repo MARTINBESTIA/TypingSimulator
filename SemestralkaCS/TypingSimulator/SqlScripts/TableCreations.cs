@@ -11,7 +11,7 @@ namespace TypingSimulator.SqlScripts
     {
         public static void CreateUserTable()
         {
-            string sql = @"
+            string sql = @" 
     CREATE TABLE IF NOT EXISTS Users (
         Id INT PRIMARY KEY AUTO_INCREMENT,
         Username VARCHAR(30) NOT NULL,
@@ -19,17 +19,24 @@ namespace TypingSimulator.SqlScripts
         PlayTime TIME NOT NULL DEFAULT '00:00:00',
         UNIQUE (Username)
     );   
-
+    
     CREATE TABLE IF NOT EXISTS PythonLeaderboards (
         UserId INT PRIMARY KEY,
         HighestScore DECIMAL(6,2),
         FOREIGN KEY (UserId) REFERENCES Users(Id)
     );
+   CREATE TABLE IF NOT EXISTS BestEfforts (
+    UserId INT NOT NULL,
+    PickedLanguage VARCHAR(20) NOT NULL,
+    HighestScore INT NOT NULL,
+    PRIMARY KEY (UserId, PickedLanguage),
+    FOREIGN KEY (UserId) REFERENCES Users(Id),
+    CHECK (PickedLanguage IN ('Python', 'Csharp', 'Cpp', 'Java'))
+);
+
+    DROP TABLE IF EXISTS PythonLeaderboards;
 ";
-            string sql2 = @"
-    ALTER TABLE Users
-    ADD COLUMN PlayTime TIME;
-";
+            
 
             // Execute the SQL command to create the Users table
             using var connection = new MySqlConnection("server =sql7.freesqldatabase.com;port=3306;database=sql7780834;user=sql7780834;password=eFL3xaXrCE");

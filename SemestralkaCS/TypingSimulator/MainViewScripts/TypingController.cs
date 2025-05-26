@@ -9,7 +9,7 @@ namespace TypingSimulator.MainViewScripts
 {
     internal class TypingController
     {
-        public DateTime startOfTyping { get; set; } = DateTime.Now;
+        public DateTime StartOfTyping { get; set; } = DateTime.Now;
         private List<bool> correctWord_ = [];
         private string typedWordChars_ = "";
         private string sampleWordChars_ = "";
@@ -36,7 +36,7 @@ namespace TypingSimulator.MainViewScripts
         }
         public void StartTyping()
         {
-            startOfTyping = DateTime.Now;
+            StartOfTyping = DateTime.Now;
             correctWord_.Clear();
             typedWordChars_ = "";
         }

@@ -94,5 +94,40 @@ namespace TypingSimulator.SqlScripts
             command.Parameters.AddWithValue("@userId", userId);
             command.ExecuteNonQuery();
         } 
+
+        public static void UpdateUserBestEffort(int userId, string language, int score) //zle
+        {
+            string sql = @"
+    INSERT INTO BestEfforts (UserId, PickedLanguage, HighestScore)
+    VALUES (@userId, @language, @score)
+    ON DUPLICATE KEY UPDATE HighestScore = GREATEST(HighestScore, @score);
+";
+            using var connection = new MySqlConnection("server=sql7.freesqldatabase.com;port=3306;database=sql7780834;user=sql7780834;password=eFL3xaXrCE");
+            connection.Open();
+            using var command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@userId", userId);
+            command.Parameters.AddWithValue("@language", language);
+            command.Parameters.AddWithValue("@score", score);
+            command.ExecuteNonQuery();
+        }
+        public static void FilterEffortsByLanguage(string language)
+        {
+            string sql = @"
+    SELECT * FROM BestEfforts WHERE PickedLanguage = @language;
+";
+            using var connection = new MySqlConnection("server=sql7.freesqldatabase.com;port=3306;database=sql7780834;user=sql7780834;password=eFL3xaXrCE");
+            connection.Open();
+            using var command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@language", language);
+            using var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                // Process each row
+                int userId = reader.GetInt32("UserId");
+                string lang = reader.GetString("PickedLanguage");
+                int score = reader.GetInt32("HighestScore");
+                Console.WriteLine($"UserId: {userId}, Language: {lang}, Score: {score}");
+            }
+        }
     }
 }
