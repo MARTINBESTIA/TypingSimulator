@@ -30,7 +30,6 @@ namespace TypingSimulator.Views
             Console.WriteLine("LoginView initialized");
 
         }
-
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             if (PasswordBox.Password.Length == 0 || UserNameBox.Text.Length == 0) {
@@ -57,22 +56,18 @@ namespace TypingSimulator.Views
                 MessageBox.Show("User does not exist");
             }
         }
-
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             new RegisterWindow().Show();
         }
-
         private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
         {
             PasswordWaterMark.Visibility = Visibility.Collapsed;
         }
-
         private void UserNameBox_GotFocus(object sender, RoutedEventArgs e)
         {
             UserNameWaterMark.Visibility = Visibility.Collapsed;
         }
-
         private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
         {
             if (PasswordBox.Password.Length == 0)
@@ -80,7 +75,6 @@ namespace TypingSimulator.Views
                 PasswordWaterMark.Visibility = Visibility.Visible;
             }
         }
-
         private void UserNameBox_LostFocus(object sender, RoutedEventArgs e)
         {
             if (UserNameBox.Text.Length == 0)

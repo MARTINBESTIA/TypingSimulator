@@ -25,11 +25,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Label Content="Select language: " VerticalContentAlignment="Center" Grid.Column="0"/>
-            <ComboBox x:Name="LanguageComboBox" HorizontalAlignment="Stretch" Margin="15,0,10,0" VerticalAlignment="Center" Grid.Column="1">
-            <ComboBoxItem Content="English" />
-            <ComboBoxItem Content="Spanish" />
-            <ComboBoxItem Content="French" />
-            <ComboBoxItem Content="German" />
+            <ComboBox x:Name="LanguageComboBox" HorizontalAlignment="Stretch" Margin="15,0,10,0" ItemsSource="{Binding LanguageTypes}" VerticalAlignment="Center" Grid.Column="1" SelectionChanged="LanguageComboBox_SelectionChanged">
+            
         </ComboBox>
         </Grid>
         <Label x:Name="UserNameLabel" Content="Meno" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" FontWeight="ExtraBlack" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="25">
@@ -70,9 +67,8 @@
             <Label x:Name="WPMLabel" Grid.Row="0" Grid.Column="0" Content="val " HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
             <Label x:Name="accuracyLabel" Grid.Row="1" Grid.Column="0" Content="val" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
             <Label x:Name="fffffff" Content="val" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
-        
+
         </Grid>
-        <RichTextBox x:Name="TextField" Grid.Row="3" Padding="0" Margin="0,5,10,5" FontSize="20"/>
-        
+        <RichTextBox x:Name="TextField" Grid.Row="3" Margin="0,5,10,5" FontSize="20" PreviewTextInput="TextField_TextInput" PreviewKeyDown="TextField_PreviewKeyDown"/>
     </Grid>
 </UserControl>
