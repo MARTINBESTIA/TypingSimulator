@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using TypingSimulator.LeaderBoard;
 
 namespace TypingSimulator.SqlScripts
 {
@@ -44,7 +45,7 @@ namespace TypingSimulator.SqlScripts
             using var command = new MySqlCommand(sql, connection);
             command.Parameters.AddWithValue("@username", username);
             object result = command.ExecuteScalar(); // tento a riadok pod nim pomohol AI
-            return result != null ? Convert.ToInt32(result) : -1; 
+            return result != null ? Convert.ToInt32(result) : -1;
         }
 
         public static bool CheckPassword(string username, string password)
@@ -78,7 +79,7 @@ namespace TypingSimulator.SqlScripts
             }
             else
             {
-                return TimeSpan.Zero; 
+                return TimeSpan.Zero;
             }
         }
 
@@ -93,9 +94,9 @@ namespace TypingSimulator.SqlScripts
             command.Parameters.AddWithValue("@playTime", playTime);
             command.Parameters.AddWithValue("@userId", userId);
             command.ExecuteNonQuery();
-        } 
+        }
 
-        public static void UpdateUserBestEffort(int userId, string language, int score) //zle
+        public static void UpdateUserBestEffort(int userId, string language, int score)
         {
             string sql = @"
     INSERT INTO BestEfforts (UserId, PickedLanguage, HighestScore)
@@ -110,7 +111,7 @@ namespace TypingSimulator.SqlScripts
             command.Parameters.AddWithValue("@score", score);
             command.ExecuteNonQuery();
         }
-        public static void FilterEffortsByLanguage(string language)
+        public static IReadOnlyList<User> FilterEffortsByLanguage(string language)
         {
             string sql = @"
     SELECT * FROM BestEfforts WHERE PickedLanguage = @language;
@@ -119,6 +120,7 @@ namespace TypingSimulator.SqlScripts
             connection.Open();
             using var command = new MySqlCommand(sql, connection);
             command.Parameters.AddWithValue("@language", language);
+            List<User> users = new List<User>();
             using var reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -126,8 +128,42 @@ namespace TypingSimulator.SqlScripts
                 int userId = reader.GetInt32("UserId");
                 string lang = reader.GetString("PickedLanguage");
                 int score = reader.GetInt32("HighestScore");
-                Console.WriteLine($"UserId: {userId}, Language: {lang}, Score: {score}");
+                users.Add(new User(userId, lang, score));
             }
+            return users.AsReadOnly();
+        }
+
+        public static string? GetUserName(int userId)
+        {
+            string sql = @"
+    SELECT Username FROM Users WHERE Id = @userId;
+";
+            using var connection = new MySqlConnection("server=sql7.freesqldatabase.com;port=3306;database=sql7780834;user=sql7780834;password=eFL3xaXrCE");
+            connection.Open();
+            using var command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@userId", userId);
+            object result = command.ExecuteScalar();
+            return result != null ? result.ToString() : string.Empty;
+        }
+
+        public static IReadOnlyList<User> GetAllBestEfforts()
+        {
+            string sql = @"
+    SELECT * FROM BestEfforts;
+";
+            using var connection = new MySqlConnection("server=sql7.freesqldatabase.com;port=3306;database=sql7780834;user=sql7780834;password=eFL3xaXrCE");
+            connection.Open();
+            using var command = new MySqlCommand(sql, connection);
+            List<User> users = new List<User>();
+            using var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                int userId = reader.GetInt32("UserId");
+                string lang = reader.GetString("PickedLanguage");
+                int score = reader.GetInt32("HighestScore");
+                users.Add(new User(userId, lang, score));
+            }
+            return users.AsReadOnly();
         }
     }
 }

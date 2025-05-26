@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TypingSimulator.MainViewScripts;
+using TypingSimulator.SqlScripts;
 
 
 namespace TypingSimulator.Views
@@ -155,15 +156,12 @@ namespace TypingSimulator.Views
         {
             _correctWords = 0;
             _incorrectWords = 0;
-
             TextPointer pointer = TextField.Document.ContentStart;
             TextPointer end = TextField.Document.ContentEnd;
             bool isWord = false;
             bool isWordCorrect = true;
-
             while (pointer != null && pointer.CompareTo(end) < 0)
             {
-                // Try to get the next forward character
                 string text = pointer.GetTextInRun(LogicalDirection.Forward);
                 if (string.IsNullOrEmpty(text))
                 {
@@ -196,7 +194,6 @@ namespace TypingSimulator.Views
                             if (brush.Color == Colors.Red) isWordCorrect = false;
                         }
                     }
-
                     pointer = nextPointer;
                 }
             }
@@ -211,6 +208,7 @@ namespace TypingSimulator.Views
             AccuracyLabel.Content = $"{accuracy}%";
             WPMLabel.Content = $"{wpm}";
             Score.Content = $"{score}";
+            UsersDAO.UpdateUserBestEffort(_userSession.UserId, LanguageTypes[LanguageComboBox.SelectedIndex], score);
             ChangeSample();
             EnablePressKeyLabel();
         }
@@ -280,6 +278,10 @@ namespace TypingSimulator.Views
         private void RestartTypingButton_Click(object sender, RoutedEventArgs e)
         {
             RestartTyping(_generatedSample);
+        }
+        private void LeaderboardsButton_Click(object sender, RoutedEventArgs e)
+        {
+            new Windows.LeaderboardsWindow().Show();
         }
     }
 }
