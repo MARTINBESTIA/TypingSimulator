@@ -1,0 +1,15 @@
+def heap_sort(self):
+        n = 0
+        current = self.head
+        while current:
+            n += 1
+            current = current.next
+
+        for i in range(n // 2 - 1, -1, -1):
+            self.heapify(n, i)
+
+        for i in range(n - 1, 0, -1):
+            self.swap(0, i)
+            self.heapify(i, 0)
+
+linked_list.heap_sort()

@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\cvi\u010Denie3\\cviceeenie3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1A290637-2027-4800-8C1C-D524EA93449C}|cvi\u010Denie3\\cvi\u010Denie3.csproj|c:\\users\\marti\\desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\c#\\cvi\u010Denie3\\cviceeenie3\\cvi\u010Denie3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A290637-2027-4800-8C1C-D524EA93449C}|cvi\u010Denie3\\cvi\u010Denie3.csproj|solutionrelative:cvi\u010Denie3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\cvi\u010Denie3\\cviceeenie3\\cvi\u010Denie3\\Program.cs",
+              "RelativeDocumentMoniker": "cvi\u010Denie3\\Program.cs",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\cvi\u010Denie3\\cviceeenie3\\cvi\u010Denie3\\Program.cs*",
+              "RelativeToolTip": "cvi\u010Denie3\\Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-19T06:33:23.977Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

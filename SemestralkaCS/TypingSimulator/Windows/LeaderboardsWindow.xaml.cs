@@ -19,8 +19,8 @@ namespace TypingSimulator.Windows
 {
     public partial class LeaderboardsWindow : Window
     {
-        public string[] LanguageTypes { get; } = { "Python", "Csharp", "Cpp", "Java", "All" };
-        public ObservableCollection<User> Users { get; } = new ObservableCollection<User>();
+        public string[] LanguageTypes { get; } = ["Python", "Csharp", "Cpp", "Java", "All"];
+        public ObservableCollection<User> Users { get; } = [];
         private IReadOnlyList<User> Efforts { get; } = UsersDAO.GetAllBestEfforts();
         public LeaderboardsWindow()
         {
@@ -35,16 +35,14 @@ namespace TypingSimulator.Windows
         }
         private void FilterLeaderboards()
         {
-            List<User>? userss = new List<User>();
+            List<User>? userss = [];
             if (Dropdown.SelectedIndex < 0 || Dropdown.SelectedIndex == 4)
             {
-                userss = Efforts.OrderByDescending(user => user.Score).ToList();
+                userss = [.. Efforts.OrderByDescending(user => user.Score)];
             }
             else
             {
-                userss = Efforts.Where(user => user.Language == LanguageTypes[Dropdown.SelectedIndex])
-                    .OrderByDescending(user => user.Score)
-                    .ToList();
+                userss = [.. Efforts.Where(user => user.Language == LanguageTypes[Dropdown.SelectedIndex]).OrderByDescending(user => user.Score)];
             }
             Users.Clear();
             foreach (var user in userss) { 

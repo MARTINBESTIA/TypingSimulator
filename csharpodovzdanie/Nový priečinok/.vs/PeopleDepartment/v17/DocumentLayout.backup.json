@@ -1,0 +1,50 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\csharpodovzdanie\\Nov\u00FD prie\u010Dinok\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{88AF1B5F-3479-414A-9D75-52551031CD20}|..\\PeopleDepartment.EditorWpfApp\\PeopleDepartment.EditorWpfApp.csproj|c:\\users\\marti\\desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\c#\\csharpodovzdanie\\peopledepartment.editorwpfapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88AF1B5F-3479-414A-9D75-52551031CD20}|..\\PeopleDepartment.EditorWpfApp\\PeopleDepartment.EditorWpfApp.csproj|c:\\users\\marti\\desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\c#\\csharpodovzdanie\\peopledepartment.editorwpfapp\\aboutwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\csharpodovzdanie\\PeopleDepartment.EditorWpfApp\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "..\\PeopleDepartment.EditorWpfApp\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\csharpodovzdanie\\PeopleDepartment.EditorWpfApp\\MainWindow.xaml",
+              "RelativeToolTip": "..\\PeopleDepartment.EditorWpfApp\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-01T13:35:15.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AboutWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\csharpodovzdanie\\PeopleDepartment.EditorWpfApp\\AboutWindow.xaml",
+              "RelativeDocumentMoniker": "..\\PeopleDepartment.EditorWpfApp\\AboutWindow.xaml",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\csharpodovzdanie\\PeopleDepartment.EditorWpfApp\\AboutWindow.xaml",
+              "RelativeToolTip": "..\\PeopleDepartment.EditorWpfApp\\AboutWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-01T13:35:12.321Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

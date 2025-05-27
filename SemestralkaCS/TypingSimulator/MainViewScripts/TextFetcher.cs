@@ -19,7 +19,7 @@ namespace TypingSimulator.MainViewScripts
             }
             else
             {
-                string[] sampleFiles = { "No directory found for this language.", "However you can at least type this thing out."};
+                string[] sampleFiles = ["No directory found for this language.", "However you can at least type this thing out."];
                 return sampleFiles;
             }
         }

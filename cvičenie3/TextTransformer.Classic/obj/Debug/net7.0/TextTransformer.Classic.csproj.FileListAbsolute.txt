@@ -1,0 +1,17 @@
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\bin\Debug\net7.0\TextTransformer.Classic.exe
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\bin\Debug\net7.0\TextTransformer.Classic.deps.json
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\bin\Debug\net7.0\TextTransformer.Classic.runtimeconfig.json
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\bin\Debug\net7.0\TextTransformer.Classic.dll
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\bin\Debug\net7.0\TextTransformer.Classic.pdb
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\obj\Debug\net7.0\TextTransformer.Classic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\obj\Debug\net7.0\TextTransformer.Classic.AssemblyInfoInputs.cache
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\obj\Debug\net7.0\TextTransformer.Classic.AssemblyInfo.cs
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\obj\Debug\net7.0\TextTransformer.Classic.csproj.CoreCompileInputs.cache
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\obj\Debug\net7.0\TextTransformer.Classic.dll
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\obj\Debug\net7.0\refint\TextTransformer.Classic.dll
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\obj\Debug\net7.0\TextTransformer.Classic.pdb
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\obj\Debug\net7.0\TextTransformer.Classic.genruntimeconfig.cache
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\obj\Debug\net7.0\ref\TextTransformer.Classic.dll
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\bin\Debug\net7.0\Figgle.dll
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\obj\Debug\net7.0\TextTransformer.Classic.csproj.AssemblyReference.cache
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\cvičenie3\TextTransformer.Classic\obj\Debug\net7.0\TextTran.1453B6AA.Up2Date

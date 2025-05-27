@@ -1,0 +1,132 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EFFEF3DD-F1C8-437E-8B89-943B8EBC7921}|WpfApp1\\WpfApp1.csproj|c:\\users\\marti\\desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\c#\\wpfapp1\\wpfapp1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EFFEF3DD-F1C8-437E-8B89-943B8EBC7921}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFFEF3DD-F1C8-437E-8B89-943B8EBC7921}|WpfApp1\\WpfApp1.csproj|c:\\users\\marti\\desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\c#\\wpfapp1\\wpfapp1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFFEF3DD-F1C8-437E-8B89-943B8EBC7921}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\WpfApp1\\WpfApp1.csproj.user||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WpfApp1\\WpfApp1.csproj.user||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFFEF3DD-F1C8-437E-8B89-943B8EBC7921}|WpfApp1\\WpfApp1.csproj|c:\\users\\marti\\desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\c#\\wpfapp1\\wpfapp1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EFFEF3DD-F1C8-437E-8B89-943B8EBC7921}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFFEF3DD-F1C8-437E-8B89-943B8EBC7921}|WpfApp1\\WpfApp1.csproj|c:\\users\\marti\\desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\c#\\wpfapp1\\wpfapp1\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFFEF3DD-F1C8-437E-8B89-943B8EBC7921}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFFEF3DD-F1C8-437E-8B89-943B8EBC7921}|WpfApp1\\WpfApp1.csproj|c:\\users\\marti\\desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\c#\\wpfapp1\\wpfapp1\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFFEF3DD-F1C8-437E-8B89-943B8EBC7921}|WpfApp1\\WpfApp1.csproj|solutionrelative:wpfapp1\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\WpfApp1\\obj\\Debug\\net8.0-windows\\App.g.i.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WpfApp1\\obj\\Debug\\net8.0-windows\\App.g.i.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\WpfApp1\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\WpfApp1\\AssemblyInfo.cs",
+              "RelativeToolTip": "WpfApp1\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T10:18:22.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "App.g.i.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\WpfApp1\\obj\\Debug\\net8.0-windows\\App.g.i.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\obj\\Debug\\net8.0-windows\\App.g.i.cs",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\WpfApp1\\obj\\Debug\\net8.0-windows\\App.g.i.cs",
+              "RelativeToolTip": "WpfApp1\\obj\\Debug\\net8.0-windows\\App.g.i.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAWwDIAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T10:14:31.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WpfApp1.csproj.user",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\WpfApp1\\WpfApp1.csproj.user",
+              "RelativeDocumentMoniker": "WpfApp1\\WpfApp1.csproj.user",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\WpfApp1\\WpfApp1.csproj.user",
+              "RelativeToolTip": "WpfApp1\\WpfApp1.csproj.user",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003464|",
+              "WhenOpened": "2025-04-16T10:13:48.806Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\WpfApp1\\App.xaml.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\WpfApp1\\App.xaml.cs",
+              "RelativeToolTip": "WpfApp1\\App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T10:13:43.464Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\WpfApp1\\App.xaml",
+              "RelativeDocumentMoniker": "WpfApp1\\App.xaml",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\WpfApp1\\App.xaml",
+              "RelativeToolTip": "WpfApp1\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-16T10:13:32.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\WpfApp1\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "WpfApp1\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\WpfApp1\\MainWindow.xaml",
+              "RelativeToolTip": "WpfApp1\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-16T10:09:59.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\WpfApp1\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\\u0161kola\\2. ro\u010Dn\u00EDk\\4. semester\\C#\\WpfApp1\\WpfApp1\\MainWindow.xaml.cs",
+              "RelativeToolTip": "WpfApp1\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAuwAwAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T10:09:57.621Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

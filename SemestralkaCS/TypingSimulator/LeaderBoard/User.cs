@@ -11,7 +11,7 @@ namespace TypingSimulator.LeaderBoard
         public User(int userId, string lang, int score)
         {
             string? uN = SqlScripts.UsersDAO.GetUserName(userId);
-            UserName = uN == null ? "Unknown" : uN;
+            UserName = uN ?? "Unknown";
             UserId = userId;
             Language = lang;
             Score = score;

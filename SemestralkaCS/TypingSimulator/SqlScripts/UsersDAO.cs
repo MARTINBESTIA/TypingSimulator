@@ -120,7 +120,7 @@ namespace TypingSimulator.SqlScripts
             connection.Open();
             using var command = new MySqlCommand(sql, connection);
             command.Parameters.AddWithValue("@language", language);
-            List<User> users = new List<User>();
+            List<User> users = [];
             using var reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -154,7 +154,7 @@ namespace TypingSimulator.SqlScripts
             using var connection = new MySqlConnection("server=sql7.freesqldatabase.com;port=3306;database=sql7780834;user=sql7780834;password=eFL3xaXrCE");
             connection.Open();
             using var command = new MySqlCommand(sql, connection);
-            List<User> users = new List<User>();
+            List<User> users = [];
             using var reader = command.ExecuteReader();
             while (reader.Read())
             {

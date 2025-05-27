@@ -1,0 +1,14 @@
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\lecture1\HelloWorld\bin\Debug\net8.0\HelloWorld.exe
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\lecture1\HelloWorld\bin\Debug\net8.0\HelloWorld.deps.json
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\lecture1\HelloWorld\bin\Debug\net8.0\HelloWorld.runtimeconfig.json
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\lecture1\HelloWorld\bin\Debug\net8.0\HelloWorld.dll
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\lecture1\HelloWorld\bin\Debug\net8.0\HelloWorld.pdb
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\lecture1\HelloWorld\obj\Debug\net8.0\HelloWorld.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\lecture1\HelloWorld\obj\Debug\net8.0\HelloWorld.AssemblyInfoInputs.cache
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\lecture1\HelloWorld\obj\Debug\net8.0\HelloWorld.AssemblyInfo.cs
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\lecture1\HelloWorld\obj\Debug\net8.0\HelloWorld.csproj.CoreCompileInputs.cache
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\lecture1\HelloWorld\obj\Debug\net8.0\HelloWorld.dll
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\lecture1\HelloWorld\obj\Debug\net8.0\refint\HelloWorld.dll
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\lecture1\HelloWorld\obj\Debug\net8.0\HelloWorld.pdb
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\lecture1\HelloWorld\obj\Debug\net8.0\HelloWorld.genruntimeconfig.cache
+C:\Users\marti\Desktop\škola\2. ročník\4. semester\C#\lecture1\HelloWorld\obj\Debug\net8.0\ref\HelloWorld.dll

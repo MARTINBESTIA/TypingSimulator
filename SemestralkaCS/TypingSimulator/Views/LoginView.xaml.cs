@@ -44,7 +44,7 @@ namespace TypingSimulator.Views
                         MessageBox.Show("User does not exist");
                         return;
                     }
-                    ViewNavigator.Navigate(new MainView(new UserSession(UsersDAO.GetUserId(UserNameBox.Text), UserNameBox.Text)));
+                    ViewNavigator.NavigateToMainView(new UserSession(UsersDAO.GetUserId(UserNameBox.Text), UserNameBox.Text));
                 }
                 else
                 {

@@ -1,0 +1,13 @@
+public class SimpleGUI {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("My GUI");
+        JButton button = new JButton("Click me!");
+
+        button.addActionListener(e -> JOptionPane.showMessageDialog(null, "Button clicked!"));
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(button);
+        frame.setSize(300, 100);
+        frame.setVisible(true);
+    }
+}

@@ -1,0 +1,16 @@
+class Program
+{
+    static void Main()
+    {
+        string text = "hello world this is Martin";
+        var wordCounts = text
+            .Split(' ')
+            .GroupBy(word => word)
+            .ToDictionary(g => g.Key, g => g.Count());
+
+        foreach (var pair in wordCounts)
+        {
+            Console.WriteLine($"{pair.Key}: {pair.Value}");
+        }
+    }
+}

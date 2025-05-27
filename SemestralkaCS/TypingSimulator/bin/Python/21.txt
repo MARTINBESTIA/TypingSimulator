@@ -1,0 +1,14 @@
+def getChars():
+
+    chars = []
+
+    for id_ in range(ord("A"), ord("Z") + 1):
+        chars.append(chr(id_))
+
+    for id_ in range(ord("a"), ord("z") + 1):
+        chars.append(chr(id_))
+
+    for number in range(10):
+        chars.append(str(number))
+
+    return chars

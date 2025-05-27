@@ -18,16 +18,14 @@ namespace TypingSimulator
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
-            var page = new LoginView();
-            NavigateToPage(page);
+            ViewNavigator.Loginview = new LoginView();
+            ViewNavigator.MainView = null; 
+            ViewNavigator.NavigateToLoginView();
             TableCreations.CreateUserTable();
-        }
-        private void NavigateToPage(UserControl page)
-        {
-            MainFrame.Navigate(page);
         }
     }
 }

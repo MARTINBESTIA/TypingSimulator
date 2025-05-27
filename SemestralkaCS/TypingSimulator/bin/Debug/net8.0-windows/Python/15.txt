@@ -1,0 +1,17 @@
+class Interface:
+    has_characters = {
+        "lowercase": True,
+        "uppercase": True,
+        "digits": True,
+        "punctuation": True,
+    }
+
+    @classmethod
+    def change_has_characters(cls, change):
+        try:
+            cls.has_characters[change] 
+        except Exception as err:
+            print(f"Invalid \nan Exception: {err}")
+        else:
+            cls.has_characters[change] = not cls.has_characters[change] 
+            print(f"{change} is now set to {cls.has_characters[change]}")

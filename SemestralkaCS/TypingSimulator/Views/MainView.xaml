@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TypingSimulator.Views"
              mc:Ignorable="d" 
+             Loaded="UserControl_Loaded"
              d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -72,7 +73,7 @@
             <Label x:Name="WPMLabel" Grid.Row="0" Grid.Column="0" Content="---" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
             <Label x:Name="AccuracyLabel" Grid.Row="1" Grid.Column="0" Content="---" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
             <Label x:Name="Score" Content="---" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
-            <Button x:Name="LogoutButton" Grid.Row="4" Height="40" Width="70" Content="Log out" Margin="15,150,15,50" HorizontalAlignment="Left"/>
+            <Button x:Name="LogoutButton" Grid.Row="4" Height="40" Width="70" Content="Log out" Margin="15,150,15,50" HorizontalAlignment="Left" Click="LogoutButton_Click"/>
         </Grid>
         <RichTextBox x:Name="TextField" Grid.Row="3" Grid.Column="0" Margin="0,5,10,5" FontSize="20" PreviewTextInput="TextField_TextInput" PreviewKeyDown="TextField_PreviewKeyDown" Loaded="TextField_Loaded"/>
     </Grid>

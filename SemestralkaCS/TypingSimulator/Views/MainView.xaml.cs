@@ -23,10 +23,10 @@ namespace TypingSimulator.Views
 {
     public partial class MainView : UserControl
     {
-        private readonly UserSession _userSession;
+        private UserSession _userSession;
         private readonly TypingController _typingController;
         private TextPointer _pointer;
-        public string[] LanguageTypes { get; } = { "Python", "Csharp", "Cpp", "Java" };
+        public string[] LanguageTypes { get; } = ["Python", "Csharp", "Cpp", "Java"];
         private string[] _generatedSample = [];
 
         private int _lineIndex = 0;
@@ -42,7 +42,6 @@ namespace TypingSimulator.Views
             DataContext = this;
 
             UpdateGUITimers();
-            UserNameLabel.Content = "Welcome, " + _userSession.UserName + "!";
 
             TextField.Document.Blocks.Clear();
             TextField.Document.Blocks.Add(new Paragraph(new Run("Choose the language to start")));
@@ -236,16 +235,6 @@ namespace TypingSimulator.Views
             Keyboard.Focus(TextField);
             TextField.CaretPosition = _pointer;
         }
-        private void RestartTyping()
-        {
-            EnablePressKeyLabel();
-            _lineIndex = 0;
-            _correctWords = 0;
-            _incorrectWords = 0;
-            FocusTextField();
-            TextField.Document.Blocks.Clear();
-            _gameLoaded = true;
-        }
         private void DisablePressKeyLabel()
         {
             PressKeyLabel.Visibility = Visibility.Collapsed;
@@ -260,15 +249,18 @@ namespace TypingSimulator.Views
             TextField.Document.Blocks.Clear();
             foreach (var line in pSample)
             {
-                Paragraph para = new Paragraph();
-                para.LineHeight = 19;
-                para.LineStackingStrategy = LineStackingStrategy.BlockLineHeight;
+                Paragraph para = new()
+                {
+                    LineHeight = 19,
+                    LineStackingStrategy = LineStackingStrategy.BlockLineHeight
+                };
                 para.Inlines.Add(new Run(line));
                 TextField.Document.Blocks.Add(para);
             }
             _gameLoaded = true;
             FocusTextField();
             StartGame();
+            EnablePressKeyLabel();
         }
         private void ChangeSampleButton_Click(object sender, RoutedEventArgs e)
         {
@@ -282,6 +274,21 @@ namespace TypingSimulator.Views
         private void LeaderboardsButton_Click(object sender, RoutedEventArgs e)
         {
             new Windows.LeaderboardsWindow().Show();
+        }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            ViewNavigator.NavigateToLoginView();
+        }
+
+        public void SwapSession(UserSession session) 
+        { 
+            _userSession = session;
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            UserNameLabel.Content = "Welcome, " + _userSession.UserName + "!";
         }
     }
 }

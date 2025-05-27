@@ -1,0 +1,12 @@
+import random
+
+with open("5 letter word dictionary.txt", 'r') as dictionary:
+    dictionary = dictionary.read().split('\n')
+
+word = random.choice(dictionary)
+
+dif_letters = list(set(word))
+
+count_letters = {}
+for i in dif_letters:
+    count_letters[i] = word.count(i)

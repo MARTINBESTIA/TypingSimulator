@@ -1,0 +1,17 @@
+class Animal {
+public:
+    virtual void Speak() { std::cout << "Some sound\n"; }
+};
+
+class Dog : public Animal {
+public:
+    void Speak() override { std::cout << "Bark!\n"; }
+};
+
+void writeFile(const std::string& filename) {
+    std::ofstream file(filename);
+    if (file.is_open()) {
+        file << "Hello, C++ file!\n";
+        file.close();
+    }
+}
